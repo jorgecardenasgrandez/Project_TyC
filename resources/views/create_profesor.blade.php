@@ -8,8 +8,8 @@
                     <h2>Registrar <span>Profesor</span></h2>
                 </div>
 
-                <form>
- 
+                <form class="formulario" action="{{ route('profesor.store') }}"  role="form"   method="POST">
+                    {{csrf_field()}}
                     <div class="form-group">
                         <label class="titulo-label">Nombres</label>
                         <input type="text" class="form-control" name="nombres" placeholder="Nombres" required autofocus>
@@ -30,8 +30,8 @@
                     <div class="form-group">
                         <label class="titulo-label">Sexo</label>                            
                         <select  class="form-control" name="sexo">
-                            <option value="masculino" selected>Masculino</option>
-                            <option value="femenino">Femenino</option>
+                            <option value="m" selected>Masculino</option>
+                            <option value="f">Femenino</option>
                         </select>
                     </div>
 
@@ -46,13 +46,6 @@
                     </div>
 
                 </form>
-            </div>
-
-@endsection
-
-
-@section('pie')
-
-    
+    </div>
 
 @endsection

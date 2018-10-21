@@ -14,7 +14,7 @@
 
                 <div class="sidebar-header">
                     <div class="user-pic">
-                        <img class="img-responsive img-rounded" src="img/user.jpg" alt="User picture">
+                        <img class="img-responsive img-rounded" src="/img/user.jpg" alt="User picture">
                     </div>
                     <div class="user-info">
                         <span class="user-name">Jeferson
@@ -36,13 +36,13 @@
                             <span>Administración</span>
                         </li>
                         <li>
-                            <a href="index.php">
+                            <a href="action="{{ route('profesor.index') }}"  role="form"">
                                 <i class="fa fa-folder"></i>
                                 <span>Inicio</span>
                             </a>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-graduation-cap"></i>
                                 <span>Alumnos</span>
                                 <!-- <span class="badge badge-pill badge-danger">New </span> -->
@@ -53,23 +53,23 @@
                                         <a href="alumno_registrar.php">Agregar <!--<span class="badge badge-pill badge-success">Pro</span>--></a>
                                     </li>
                                     <li>
-                                        <a href="#">Buscar</a>
+                                        <a href="">Buscar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Editar</a>
+                                        <a href="">Editar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Eliminar</a>
+                                        <a href="">Eliminar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Ver Todo</a>
+                                        <a href="">Ver Todo</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
 
                         <li class="sidebar-dropdown">
-                            <a href="#">
+                            <a>
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 <span>Profesores</span>
                                 <!--<span class="badge badge-pill badge-primary">3</span>-->
@@ -77,25 +77,25 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="profesor_registrar.php">Agregar</a>
+                                        <a href="{{ route('profesor.create') }}">Agregar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Buscar</a>
+                                        <a href="">Buscar</a>
                                     </li>
                                     <li>
-                                        <a href="profesor_modificar.php">Editar</a>
+                                        <a href="/editar_profesor">Editar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Eliminar</a>
+                                        <a href="">Eliminar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Ver Todo</a>
+                                        <a href="">Ver Todo</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-book"></i>
                                 <span>Familias Profesionales</span>
                             </a>
@@ -105,22 +105,22 @@
                                         <a href="familia_registrar.php">Agregar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Buscar</a>
+                                        <a href="">Buscar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Editar</a>
+                                        <a href="">Editar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Eliminar</a>
+                                        <a href="">Eliminar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Ver Todo</a>
+                                        <a href="">Ver Todo</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-book"></i>
                                 <span>Opciones Ocup.</span>
                             </a>
@@ -130,22 +130,22 @@
                                         <a href="opcion_registrar.php">Agregar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Buscar</a>
+                                        <a href="">Buscar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Editar</a>
+                                        <a href="">Editar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Eliminar</a>
+                                        <a href="">Eliminar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Ver Todo</a>
+                                        <a href="">Ver Todo</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-book"></i>
                                 <span>Módulos</span>
                             </a>
@@ -155,16 +155,16 @@
                                         <a href="modulo_registrar.php">Agregar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Buscar</a>
+                                        <a href="">Buscar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Editar</a>
+                                        <a href="">Editar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Eliminar</a>
+                                        <a href="">Eliminar</a>
                                     </li>
                                     <li>
-                                        <a href="#">Ver Todo</a>
+                                        <a href="">Ver Todo</a>
                                     </li>
                                 </ul>
                             </div>
@@ -185,26 +185,26 @@
                             </a>
                         </li>
                         <li class="sidebar-dropdown">
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-folder"></i>
                                 <span>Reportes</span>
                             </a>
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="#">Reporte de ...</a>
+                                        <a href="">Reporte de ...</a>
                                     </li>
                                     <li>
-                                        <a href="#">Reporte de ...</a>
+                                        <a href="">Reporte de ...</a>
                                     </li>
                                     <li>
-                                        <a href="#">Reporte de ...</a>
+                                        <a href="">Reporte de ...</a>
                                     </li>
                                     <li>
-                                        <a href="#">Reporte de ...</a>
+                                        <a href="">Reporte de ...</a>
                                     </li>
                                     <li>
-                                        <a href="#">Reporte de ...</a>
+                                        <a href="">Reporte de ...</a>
                                     </li>
                                 </ul>
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Profesor;
 
 class ProfesorController extends Controller
 {
@@ -13,7 +14,7 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        
+        return view('index');
     }
 
     /**
@@ -21,15 +22,12 @@ class ProfesorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function registrar()
+    public function create()
     {
-        return view('profesor_registrar');
+        return view('create_profesor');
     }
     
-    public function modificar()
-    {
-        return view('profesor_modificar');
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -39,7 +37,18 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //SE PUEDE MEJORAR USANDO CLASES REQUEST
+        $this->validate($request,['nombres'=>'required', 'apellido-paterno'=>'required', 'apellido-materno'=>'required','sexo'=>'required','fecha-nacimiento'=>'required']);
+        Profesor::create([
+                'nom_prof' => request('nombres'),
+                'apePaterno_prof' => request('apellido-paterno'),
+                'apeMaterno_prof' => request('apellido-materno'),
+                'sexo_prof' => request('sexo'),
+                'fechaNac_prof' => request('fecha-nacimiento'),
+                'estado_prof' => 1                     //el profesor esta activo
+        ]);
+        return view('index');
+        
     }
 
     /**
@@ -61,9 +70,15 @@ class ProfesorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $profe=Profesor::find($id);
+        return view('libro.edit',compact('profe'));
     }
-
+    
+    public function edit_inicial()
+    {
+        return view('profesor_modificar');
+    }
+    
     /**
      * Update the specified resource in storage.
      *

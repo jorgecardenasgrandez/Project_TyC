@@ -14,7 +14,7 @@
                             <div id="imaginary_container"> 
                                 <div class="input-group stylish-input-group">
                                     <input id="tag" type="text" class="form-control" placeholder="Escriba el nombre y/o apellido">
-
+                            
                                     <script type="text/javascript">
                                         $(function () {
                                             var  items = ["elemento 1","elemento 2"];
@@ -73,12 +73,5 @@
 
                 </form>
             </div>
-
-@endsection
-
-
-@section('pie')
-
-    
 
 @endsection
