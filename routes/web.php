@@ -15,6 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/prueba', function(){
-    return "con fe";
-});
+Route::get('/registrar_profesor', 'ProfesorController@registrar');
+Route::get('/modificar_profesor', 'ProfesorController@modificar');
