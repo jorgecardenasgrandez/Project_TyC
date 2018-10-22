@@ -152,7 +152,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="modulo_registrar.php">Agregar</a>
+                                        <a href="/showRegistroModulo">Agregar</a>
                                     </li>
                                     <li>
                                         <a href="">Buscar</a>

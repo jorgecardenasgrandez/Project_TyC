@@ -260,7 +260,7 @@
                     <h2>Registrar <span>Módulo</span></h2>
                 </div>
 
-                <form>
+                <form action="/registrarModulo" action="post">
  
                     <div class="form-group">
                         <label class="titulo-label">Nombre del Módulo</label>
@@ -270,7 +270,7 @@
                     
                     <div class="form-group">
                         <label class="titulo-label">Opción ocupacional</label>                            
-                        <select  class="form-control" name="opcion-ocupacional">
+                        <select  class="form-control" name="opcion_ocupacional">
                             <option value="opcion1" selected>Opción ocupacional 1</option>
                             <option value="opcion2">Opción ocupacional 2</option>
                         </select>
@@ -278,14 +278,15 @@
 
 
                     <div class="form-row">
+                        <!--
                         <div class="form-group col-md-4">
                             <label class="titulo-label">Fecha de inicio</label>
-                            <input type="date" class="form-control" name="fecha-inicio" placeholder="DD/MM/AAAA" required>
+                            <input type="date" class="form-control" name="fecha_inicio" placeholder="DD/MM/AAAA" required>
                         </div>
                         <div class="form-group col-md-4">
                             <label class="titulo-label">Fecha de fin</label>
-                            <input type="date" class="form-control" name="fecha-fin" placeholder="DD/MM/AAAA" required>
-                        </div>
+                            <input type="date" class="form-control" name="fecha_fin" placeholder="DD/MM/AAAA" required>
+                        </div>-->
                         <div class="form-group col-md-4">
                             <label class="titulo-label">Duración en horas</label>
                             <input type="number" class="form-control" name="duración" placeholder="Ej. 300" required>
@@ -294,8 +295,8 @@
 
 
                     <div class="botones">
-                        <button type="submit" class="btn boton-registrar btn-success col-xs-4">Registrar</button>
-                        <button type="reset" class="btn boton-limpiar btn-warning col-xs-4">Limpiar</button>
+                        <button type="submit" class="btn boton-registrar btn-success col-xs-4" name="registro_modulo">Registrar</button>
+                        <button type="reset" class="btn boton-limpiar btn-warning col-xs-4" name="limpia_modulo">Limpiar</button>
                     </div>
 
                 </form>

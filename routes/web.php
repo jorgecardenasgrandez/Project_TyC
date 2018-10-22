@@ -23,3 +23,13 @@ Route::get('/crear_profesor', 'ProfesorController@store');
 
 Route::resource('profesor','ProfesorController');
 Route::get('/editar_profesor','ProfesorController@edit_inicial' );
+
+/**
+ *  DISTINAS RUTAS PARA LA GESTION DEL MODULO
+ */
+Route::get('/showRegistroModulo','ModuloController@showRegistroModulo');
+Route::post('/registrarModulo','ModuloController@registrarModulo');
+Route::get('/showModulos','ModuloController@mostrarModulos');
+Route::get('/getModulo/{id}','ModuloController@getModulo');
+Route::post('/editarModulo/{id}','ModuloController@editarModulo');
+Route::post('borrarModulo/{id}','ModuloController@borrarModulo');
