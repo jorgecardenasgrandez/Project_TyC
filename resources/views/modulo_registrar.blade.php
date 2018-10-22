@@ -179,7 +179,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="modulo_registrar.php">Agregar</a>
+                                        <a href="/showRegistroModulo">Agregar</a>
                                     </li>
                                     <li>
                                         <a href="#">Buscar</a>
@@ -260,8 +260,8 @@
                     <h2>Registrar <span>Módulo</span></h2>
                 </div>
 
-                <form action="/registrarModulo" action="post">
- 
+                <form action="/registrarModulo" method="POST" >
+                   @csrf
                     <div class="form-group">
                         <label class="titulo-label">Nombre del Módulo</label>
                         <input type="text" class="form-control" name="nombre" placeholder="Nombre del módulo" required autofocus>
@@ -271,8 +271,8 @@
                     <div class="form-group">
                         <label class="titulo-label">Opción ocupacional</label>                            
                         <select  class="form-control" name="opcion_ocupacional">
-                            <option value="opcion1" selected>Opción ocupacional 1</option>
-                            <option value="opcion2">Opción ocupacional 2</option>
+                            <option value="1" selected>Opción ocupacional 1</option>
+                            <option value=2>Opción ocupacional 2</option>
                         </select>
                     </div>
 
@@ -289,7 +289,7 @@
                         </div>-->
                         <div class="form-group col-md-4">
                             <label class="titulo-label">Duración en horas</label>
-                            <input type="number" class="form-control" name="duración" placeholder="Ej. 300" required>
+                            <input type="number" class="form-control" name="duracion" placeholder="Ej. 300" required>
                         </div>
                     </div>
 
