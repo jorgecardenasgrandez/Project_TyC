@@ -40,10 +40,11 @@ Route::get('/showModulos','ModuloController@mostrarModulos');
  */
 Route::get('/showRegistroFamiliaProfesional','FamiliaprofesionalController@showRegistroFam');
 Route::post('/registrarFamiliaProfesional','FamiliaprofesionalController@registrarFamiliaPro');
-Route::get('/showFamiliaProfesional','FamiliaprofesionalController@showFamiliaPro');
+//Route::get('/showFamiliaProfesional','FamiliaprofesionalController@showFamiliaPro');
 
 
 /**
   * DISTINTAS RUTAS PARA LA GESTION DE LAS OPCIONES OCUPACIONALES
   */
-Route::get('/showRegistroOpcionOcupacional','OpcionocupacionalController@showOpcionOcup');
+Route::get('/showRegistroOpcionOcupacional','OpcionocupacionalController@showRegistroOpcionOcup');
+Route::post('/RegistroOpcionOcupacional','OpcionocupacionalController@registroOpcionOcup');

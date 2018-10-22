@@ -271,8 +271,10 @@
                     <div class="form-group">
                         <label class="titulo-label">Opción ocupacional</label>                            
                         <select  class="form-control" name="opcion_ocupacional">
-                            <option value="1" selected>Opción ocupacional 1</option>
-                            <option value="2">Opción ocupacional 2</option>
+                            <option value="-1" selected>Seleccionar Opcion Ocupacional</option>
+                            <?php foreach($lsOpcionesOcup as $OpcOcup):?>
+                                <option value="<?php echo $OpcOcup->id ?>"><?php echo $OpcOcup->nombreOO?></option>
+                            <?php endforeach;?>
                         </select>
                     </div>
 

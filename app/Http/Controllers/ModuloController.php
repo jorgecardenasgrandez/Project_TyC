@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Modulo;
 use App\Http\Requests\ModuloRequest;
+use App\Opcionocupacional;
 
 class ModuloController extends Controller
 {
     function showRegistroModulo(){
-        return view('modulo_registrar');
+        $lsOpcionesOcupacionales=Opcionocupacional::all();
+        return view('modulo_registrar',['lsOpcionesOcup'=>$lsOpcionesOcupacionales]);
     }
 
     function registrarModulo(ModuloRequest $request){
@@ -29,8 +31,7 @@ class ModuloController extends Controller
                 'oo_id'=> request('opcion_ocupacional'),
                 'estado' => 1                     
             ]);*/
-            return view('modulo_registrar');
-            //return redirect()->route('/showRegistroModulo');
+            return back();
     }
     
     function mostrarModulos(){
