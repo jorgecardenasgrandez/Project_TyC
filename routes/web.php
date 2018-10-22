@@ -33,3 +33,17 @@ Route::get('/showModulos','ModuloController@mostrarModulos');
 //Route::get('/getModulo/{id}','ModuloController@getModulo');
 //Route::post('/editarModulo/{id}','ModuloController@editarModulo');
 //Route::post('borrarModulo/{id}','ModuloController@borrarModulo');
+
+
+/**
+ * DISTINTAS RUTAS PARA LA GESTION DE LAS FAMILIAS PROFESIONALES
+ */
+Route::get('/showRegistroFamiliaProfesional','FamiliaprofesionalController@showRegistroFam');
+Route::post('/registrarFamiliaProfesional','FamiliaprofesionalController@registrarFamiliaPro');
+Route::get('/showFamiliaProfesional','FamiliaprofesionalController@showFamiliaPro');
+
+
+/**
+  * DISTINTAS RUTAS PARA LA GESTION DE LAS OPCIONES OCUPACIONALES
+  */
+Route::get('/showRegistroOpcionOcupacional','OpcionocupacionalController@showOpcionOcup');

@@ -102,7 +102,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="familia_registrar.php">Agregar</a>
+                                        <a href="/showRegistroFamiliaProfesional">Agregar</a>
                                     </li>
                                     <li>
                                         <a href="">Buscar</a>
@@ -127,7 +127,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="opcion_registrar.php">Agregar</a>
+                                        <a href="/showRegistroOpcionOcupacional">Agregar</a>
                                     </li>
                                     <li>
                                         <a href="">Buscar</a>

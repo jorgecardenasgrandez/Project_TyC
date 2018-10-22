@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Modulo;
-//use App\Http\Requests\ModuloRequest;
+use App\Http\Requests\ModuloRequest;
 
 class ModuloController extends Controller
 {
@@ -16,9 +16,10 @@ class ModuloController extends Controller
             
             
             $modulo=new Modulo;
-            $modulo->nombreMod=$request->name;
+            $modulo->nombreMod=$request->nombre;
             $modulo->duracion=$request->duracion;
             $modulo->oo_id=$request->opcion_ocupacional;
+            $modulo->estado=1;
             $modulo->save();
            
             /*$this->validate($request,['nombre'=>'required', 'duracion'=>'required','opcion_ocupacional'=>'required']);
@@ -28,7 +29,8 @@ class ModuloController extends Controller
                 'oo_id'=> request('opcion_ocupacional'),
                 'estado' => 1                     
             ]);*/
-            return redirect()->route('/showRegistroModulo');
+            return view('modulo_registrar');
+            //return redirect()->route('/showRegistroModulo');
     }
     
     function mostrarModulos(){

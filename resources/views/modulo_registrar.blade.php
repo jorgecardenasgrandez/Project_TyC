@@ -129,7 +129,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="familia_registrar.php">Agregar</a>
+                                        <a href="/showRegistroFamiliaProfesional">Agregar</a>
                                     </li>
                                     <li>
                                         <a href="#">Buscar</a>
@@ -154,7 +154,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="opcion_registrar.php">Agregar</a>
+                                        <a href="/showRegistroOpcionOcupacional">Agregar</a>
                                     </li>
                                     <li>
                                         <a href="#">Buscar</a>
@@ -272,7 +272,7 @@
                         <label class="titulo-label">Opción ocupacional</label>                            
                         <select  class="form-control" name="opcion_ocupacional">
                             <option value="1" selected>Opción ocupacional 1</option>
-                            <option value=2>Opción ocupacional 2</option>
+                            <option value="2">Opción ocupacional 2</option>
                         </select>
                     </div>
 
