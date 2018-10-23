@@ -63,13 +63,13 @@
                             <span>Panel General</span>
                         </li>
                         <li>
-                            <a href="alumno_index.php">
+                            <a href="/visualizarAlumno">
                                 <i class="fa fa-folder"></i>
                                 <span>Inicio</span>
                             </a>
                         </li>
                         <li>
-                            <a href="index.php">
+                            <a href="visualizarAlumno">
                                 <i class="fa fa-folder"></i>
                                 <span>Mi información</span>
                             </a>
@@ -92,7 +92,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="alumno_reporte_matricula.php">Reporte de Matrícula</a>
+                                        <a href="#">Reporte de Matrícula</a>
                                     </li>
                                     <li>
                                         <a href="#">Reporte de Evaluaciones</a>
@@ -128,30 +128,27 @@
                     <thead class="bg-primary">
                         <tr>
                             <th scope="col" width="15%">#Matrícula</th>
+                            <th scope="col" width="15%">Numero de recibo</th>
+                            <th scope="col" width="15%">DNI</th>
                             <th scope="col" width="15%">Fecha</th>
-                            <th scope="col" width="60%">Detalle</th>
+                            <th scope="col" width="15%">Monto</th>
+                            <th scope="col" width="15%">Grupo</th>
                             <th scope="col" width="10%">Evento</th>
                         </tr>
                     </thead>
                     <tbody>
+                    @foreach($matricula as $mtc)
                         <tr>
-                            <th scope="row">10000001</th>
-                            <td>11/10/2018</td>
-                            <td>No sé que podría ir acá :v</td>
+                            <th scope="row">{{ $mtc->id }}</th>
+                            <td>{{ $mtc->numReciboPago }}</td>
+                            <td>{{ $mtc->estudiante_id }}</td>
+                            <td>{{ $mtc->fecMat }}</td>
+                            <td>{{ $mtc->montoLabo }}</td>
+                            <td>{{ $mtc->grupo_id }}</td>
+                            
                             <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#miModal">Ver</button></td>
                         </tr>
-                        <tr>
-                            <th scope="row">10000002</th>
-                            <td>15/10/2018</td>
-                            <td>No sé que podría ir acá :v</td>
-                            <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#miModal">Ver</button></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">10000003</th>
-                          <td>20/10/2018</td>
-                          <td>No sé que podría ir acá :v</td>
-                          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#miModal">Ver</button></td>
-                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
                 

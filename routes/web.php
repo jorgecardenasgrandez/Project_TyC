@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Alumno;
 Route::get('/', function () {
     return view('index');
 });
@@ -33,7 +33,7 @@ Route::get('/obtenergrupos/{id}','GrupoController@listarGrupos');
 Route::resource('matricula','MatriculaController');
 Route::get('/traerFrecuencia/{id}','FrecuenciaController@obtenerFrecuencia');
 
-
+Route::get('/visualizarMatricula','MatriculaController@visualizarMatricula');
 /*  RUTAS PARA LA GESTION DE ALUMNOS */
 Route::resource('alumno','AlumnoController');
 
@@ -61,3 +61,15 @@ Route::post('/registrarFamiliaProfesional','FamiliaprofesionalController@registr
   */
 Route::get('/showRegistroOpcionOcupacional','OpcionocupacionalController@showRegistroOpcionOcup');
 Route::post('/RegistroOpcionOcupacional','OpcionocupacionalController@registroOpcionOcup');
+
+
+
+/**
+ * |
+ * | GESTIONAR LA VISTA POR PARTE DEL ALUMNO
+ * |
+ */
+
+Route::get('/visualizarAlumno','GAlumnoMatriculaController@index');
+Route::get('/alumnoReporteMatricula','GAlumnoMatriculaController@reporteMatricula');
+Route::get('mostrarDetalleMatricula','GAlumnoMatriculaController@mostrarDetalleMatricula');

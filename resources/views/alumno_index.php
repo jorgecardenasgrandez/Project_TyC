@@ -63,7 +63,7 @@
                             <span>Panel General</span>
                         </li>
                         <li>
-                            <a href="index.php">
+                            <a href="/visualizarAlumno">
                                 <i class="fa fa-folder"></i>
                                 <span>Inicio</span>
                             </a>
@@ -92,7 +92,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="alumno_reporte_matricula.php">Reporte de Matrícula</a>
+                                        <a href="/alumnoReporteMatricula">Reporte de Matrícula</a>
                                     </li>
                                     <li>
                                         <a href="#">Reporte de Evaluaciones</a>
