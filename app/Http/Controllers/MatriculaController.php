@@ -3,13 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Profesor;
 use App\Modulo;
-use App\Turno;
-use App\Frecuencia;
-use App\Grupo;
 
-class GrupoController extends Controller
+class MatriculaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +14,7 @@ class GrupoController extends Controller
      */
     public function index()
     {
-        //
+        return view('index');
     }
 
     /**
@@ -28,19 +24,8 @@ class GrupoController extends Controller
      */
     public function create()
     {
-        $profesores = Profesor::all();
         $modulos = Modulo::all();
-        $turnos = Turno::all();
-        $frecuencias = Frecuencia::all();
-        return view('asignar_profesor',compact('profesores','modulos','turnos','frecuencias'));
-    }
-    
-    public function listarGrupos(Request $request,$id){
-        if($request->ajax()){
-            $grupos = Grupo::getGrupo($id);
-            return response()->json($grupos);
-        }
-        
+        return view('matricula_formulario',compact('modulos'));
     }
 
     /**
@@ -51,15 +36,7 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
-        Grupo::create([
-                'fecInicio' => request('fecha-inicio'),
-                'fecFin' => request('fecha-fin'),
-                'profesor_id' => request('nombres'),
-                'modulo_id' => request('modulo'),
-                'turno_id' => request('turno'),
-                'frecuencia_id' => request('frecuencia')                   
-        ]);
-        return view('index');
+        //
     }
 
     /**

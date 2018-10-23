@@ -33,12 +33,16 @@
             @include('layouts/contenido_cabecera')
             
             @yield("contenido_principal")
+            
+            
     
         </main>
         <!-- page-content" -->
     </div>
    
     <!-- page-wrapper -->
+    
+       
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
@@ -46,6 +50,11 @@
         crossorigin="anonymous"></script>
     <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/js/custom.js"></script>
+    <script src="/js/jquery-1.12.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/js/actualizar_select.js"></script>
+       <script src="/js/llenar_frecuencia.js"></script>
+        
 
 </body>
 </html>

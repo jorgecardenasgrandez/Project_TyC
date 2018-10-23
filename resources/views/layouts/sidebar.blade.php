@@ -173,7 +173,7 @@
                             <span>Operaciones</span>
                         </li>
                         <li>
-                            <a href="matricular.php">
+                            <a href="{{ route('matricula.create')}}">
                                 <i class="fa fa-folder"></i>
                                 <span>Matrícular</span>
                             </a>
