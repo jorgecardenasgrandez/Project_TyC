@@ -42,6 +42,15 @@ class GrupoController extends Controller
         }
         
     }
+    
+    public function BuscarGrupo(Request $request,$id){
+        $fil2 = substr($id,0,1);
+        if($request->ajax()){
+            $grupo = Grupo::buscarGrupo($fil2);
+            return response()->json($grupo);
+        }
+        
+    }
 
     /**
      * Store a newly created resource in storage.

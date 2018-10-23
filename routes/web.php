@@ -28,10 +28,12 @@ Route::get('/editar_profesor','ProfesorController@edit_inicial' );
 /*  RUTAS PARA LA GESTION DE GRUPOS */
 Route::resource('grupo','GrupoController');
 Route::get('/obtenergrupos/{id}','GrupoController@listarGrupos');
+Route::get('/obtenergrupo/{id}','GrupoController@BuscarGrupo');
 
 /*  RUTAS PARA LA GESTION DE MATRICULA */
 Route::resource('matricula','MatriculaController');
-Route::get('/traerFrecuencia/{id}','FrecuenciaController@obtenerFrecuencia');
+Route::get('/traerfrecuencia/{id}','MatriculaController@obtenerFrecuencia');
+Route::get('/traerturno/{id}','MatriculaController@obtenerTurno');
 
 
 /*  RUTAS PARA LA GESTION DE ALUMNOS */
