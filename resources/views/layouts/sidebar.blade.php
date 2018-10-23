@@ -50,7 +50,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="alumno_registrar.php">Agregar <!--<span class="badge badge-pill badge-success">Pro</span>--></a>
+                                        <a href="{{ route('alumno.create')}}">Agregar <!--<span class="badge badge-pill badge-success">Pro</span>--></a>
                                     </li>
                                     <li>
                                         <a href="">Buscar</a>

@@ -15,7 +15,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-/*
+
+/*          RUTAS PARA LA GESTION DE PROFESOR
 Route::get('/registrar_profesor', 'ProfesorController@registrar');
 Route::get('/modificar_profesor', 'ProfesorController@modificar');
 Route::get('/crear_profesor', 'ProfesorController@store');
@@ -23,6 +24,10 @@ Route::get('/crear_profesor', 'ProfesorController@store');
 
 Route::resource('profesor','ProfesorController');
 Route::get('/editar_profesor','ProfesorController@edit_inicial' );
+
+
+/*  RUTAS PARA LA GESTION DE ALUMNOS */
+Route::resource('alumno','AlumnoController');
 
 /**
  *  DISTINAS RUTAS PARA LA GESTION DEL MODULO
