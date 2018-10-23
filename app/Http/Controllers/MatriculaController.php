@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Modulo;
+use App\Matricula;
 
 class MatriculaController extends Controller
 {
@@ -36,7 +37,15 @@ class MatriculaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Matricula::create([
+                'cod_inscripcion' => request(''),
+                'fecMat' => request(''),
+                'montoLabo' => request(''),
+                'estudiante_dni' => request(''),
+                'numReciboPago' => request(''),
+                'grupo_id' => request('')                   
+        ]);
+        return view('index');
     }
 
     /**
