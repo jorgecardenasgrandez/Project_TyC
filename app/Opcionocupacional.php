@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Familiaprofesional;
 
 class Opcionocupacional extends Model
 {
@@ -10,4 +11,8 @@ class Opcionocupacional extends Model
         'nombreOO',
         'fp_id'
     ];
+
+    function familiaProfesional(){
+        return $this->belongsTo(Familiaprofesional::class);
+    }
 }
