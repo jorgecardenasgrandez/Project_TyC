@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Alumno;
+use App\Distrito;
+use App\Provincia;
+use App\Departamento;
 
 class AlumnoController extends Controller
 {
@@ -23,7 +27,10 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        return view('alumno_registrar');
+        $distritos=Distrito::all();
+        $provincias=Provincia::all();
+        $departamentos=Departamento::all();
+        return view('alumno_registrar',compact('distritos','provincias','departamentos'));
     }
 
     /**
@@ -34,7 +41,28 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //SE PUEDE MEJORAR USANDO CLASES REQUEST
+        /*
+        $this->validate($request,['dni'=>'required', 'nombres'=>'required', 'apePaterno'=>'required', 'apeMaterno'=>'required','sexo'=>'required','ecivil'=>'required','gradoInstruccion'=>'required', 'fnacimiento'=>'required',
+                                  'ocupacion'=>'required','telefono'=>'required','correo'=>'required','domicilio'=>'required','idDistritoDom'=>'required']);
+        */
+        Alumno::create([
+                'dni' => request('dni'),
+                'nombres' => request('nombres'),
+                'apePaterno' => request('apellido-paterno'),
+                'apeMaterno' => request('apellido-materno'),
+                'sexo' => request('sexo'),
+                'ecivil' => request('estado-civil'),
+                'gradoInstruccion' => request('grado-instruccion'),
+                'fnacimiento' => request('fecha-nacimiento'),
+                'ocupacion' => request('ocupacion'),
+                'telefono' => request('numero'),
+                'correo' => request('email'),
+                'domicilio' => request('domicilio'),
+                'idDistritoDom' => request('distrito'),
+                'estado_alumno' => 1                     //el profesor esta activo
+        ]);
+        return view('index');
     }
 
     /**

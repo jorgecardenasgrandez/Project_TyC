@@ -36,7 +36,7 @@
                             <span>Administración</span>
                         </li>
                         <li>
-                            <a href="action="{{ route('profesor.index') }}"  role="form"">
+                            <a href="\">
                                 <i class="fa fa-folder"></i>
                                 <span>Inicio</span>
                             </a>
@@ -179,7 +179,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="asignar.php">
+                            <a href="{{ route('grupo.create') }}">
                                 <i class="fa fa-folder"></i>
                                 <span>Asignar Docente</span>
                             </a>
