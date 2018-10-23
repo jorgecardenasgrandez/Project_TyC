@@ -8,7 +8,8 @@
                     <h2>Registrar <span>Alumno</span></h2>
                 </div>
 
-                <form>
+                <form class="formulario" action="{{ route('alumno.store') }}"  role="form"   method="POST">
+                    {{csrf_field()}}
                     <fieldset>
                         <legend>Datos personales</legend>
                         <div class="form-row">
@@ -26,15 +27,19 @@
                             </div>
                         </div>
                         <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label class="titulo-label">DNI</label>
+                                <input type="text" class="form-control" name="dni" required>
+                            </div>
                             <div class="form-group col-md-6">
                                 <label class="titulo-label">Fecha de nacimiento</label>
                                 <input type="date" class="form-control" name="fecha-nacimiento" required>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-3">
                                 <label class="titulo-label">Sexo</label>                            
                                 <select  class="form-control" name="sexo">
-                                    <option value="masculino" selected>Masculino</option>
-                                    <option value="femenino">Femenino</option>
+                                    <option value="m" selected>Masculino</option>
+                                    <option value="f">Femenino</option>
                                 </select>
                             </div>
                         </div>
@@ -64,12 +69,15 @@
                             </select>
                         </div>
                         <div class="form-group col-md-4">
-                            <label class="titulo-label">Ocupación</label>                            
+                            <label class="titulo-label">Ocupación</label>
+                            <!--                            
                             <select  class="form-control" name="ocupacion">
                                 <option value="opcion1" selected>Opción 1</option>
                                 <option value="opcion2">Opción 2</option>
                                 <option value="opcion3">Opción 3</option>
                             </select>
+                            -->
+                            <input type="text" class="form-control" name="ocupacion" required>
                         </div>
                     </div>
 
@@ -98,22 +106,28 @@
                             <div class="form-group col-md-4">
                                 <label class="titulo-label">Distrito</label>                            
                                 <select  class="form-control" name="distrito">
-                                    <option value="distrito1" selected>Distrito 1</option>
-                                    <option value="distrito2">Distrito 2</option>
+                                    <option value="" selected>Seleccionar</option>
+                                    @foreach($distritos as $dis)
+                                        <option value="{{$dis->id}}">{{$dis->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
                                 <label class="titulo-label">Provincia</label>                            
                                 <select  class="form-control" name="provincia">
-                                    <option value="provincia1" selected>Provincia 1</option>
-                                    <option value="provincia2">Provincia 2</option>
+                                    <option value="" selected>Seleccionar</option>
+                                    @foreach($provincias as $prov)
+                                        <option value="{{$prov->id}}">{{$prov->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-4">
-                                <label class="titulo-label">Provincia</label>                            
+                                <label class="titulo-label">Departamento</label>                            
                                 <select  class="form-control" name="departamento">
-                                    <option value="departamento1" selected>Departamento 1</option>
-                                    <option value="departamento2">Departamento2 2</option>
+                                    <option value="" selected>Seleccionar</option>
+                                    @foreach($departamentos as $dep)
+                                        <option value="{{$dep->id}}">{{$dep->nombre}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

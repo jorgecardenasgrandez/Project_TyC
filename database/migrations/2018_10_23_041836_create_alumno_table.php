@@ -26,7 +26,6 @@ class CreateAlumnoTable extends Migration
             $table->char('telefono',9);
             $table->string('correo',50);
             $table->string('domicilio',100);
-            $table->string('lugNacimiento',50);
             
             $table->integer('idDistritoDom')->unsigned();
             $table->foreign('idDistritoDom')->references('id')->on('distritos')->onDelete('cascade');
