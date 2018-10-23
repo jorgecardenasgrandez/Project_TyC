@@ -8,11 +8,17 @@
                     <h2>Realizar <span>Matrícula</span></h2>
                 </div>
 
-                <form>
+                <form class="formulario" action="{{ route('matricula.store')}}" method="POST" role="form">
+                   {{csrf_field()}}
                     <div class="form-row"> 
                         <div class="form-group col-md-9">
                             <label class="titulo-label">Nombres</label>
-                            <input type="text" class="form-control" name="nombres" autofocus>
+                            <select  class="form-control" name="nombres">
+                                   <option value="">Seleccionar</option>
+                                    @foreach($alumnos as $alu)
+                                        <option value="{{$alu->dni}}">{{$alu->nombres}}</option>
+                                    @endforeach
+                            </select>
                         </div>
                         <div class="form-group col-md-3">
                             <label class="titulo-label">Fecha</label>
@@ -21,7 +27,7 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group col-md-9">
+                        <div class="form-group col-md-7">
                             <label class="titulo-label">Modulo</label>
                             <select  class="form-control" id="modulo">
                                    <option value="">Seleccionar</option>
@@ -30,58 +36,34 @@
                                     @endforeach
                             </select>
                         </div>
-                        <div class="form-group col-md-3">
+                        <div class="form-group col-md-1">
                             <label class="titulo-label">Grupo</label>
-                            <select  class="form-control" id="grupo">
-                                    
+                            <select  class="form-control" id="grupo" name="grupo">
+                                   
                             </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="titulo-label">Trancurso</label>
+                            <input type="text" class="form-control" id="fechas">
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label class="titulo-label">Frecuencia</label>
-                            <input type="text" class="form-control" id="frecuencia" autofocus>
+                            <input type="text" class="form-control" id="frecuencia" autofocus>    
                         </div>
                         <div class="form-group col-md-5">
                             <label class="titulo-label">Turno</label>
-                            <input type="text" class="form-control" id="turno" autofocus>
+                            <input type="text" class="form-control" id="turno"  autofocus>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="titulo-label">Nro. Recibo</label>
+                            <input type="text" class="form-control" name="recibo" autofocus>
                         </div>
                     </div>
-                    <!--
-                    <br>
-                    <table class="table">
-                        <thead class="bg-primary">
-                            <tr>
-                                <th scope="col">ID. Módulo</th>
-                                <th scope="col">Módulo</th>
-                                <th scope="col">Opción Ocupacional</th>
-                                <th scope="col">Precio</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">2</th>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                            <tr>
-                              <th scope="row">3</th>
-                              <td></td>
-                              <td></td>
-                              <td></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <br>
-                     -->
+                    
+                   
 
                     <div class="botones">
                         <button type="submit" class="btn boton-registrar btn-primary col-xs-4">Matricular</button>

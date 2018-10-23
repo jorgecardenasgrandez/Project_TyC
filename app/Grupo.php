@@ -15,8 +15,7 @@ class Grupo extends Model
     public static function getGrupo($id){
         return Grupo::where('modulo_id',$id)->get();
     }
-
-
+    
     function modulo(){
         return $this->belongsTo(Modulo::class);
     }

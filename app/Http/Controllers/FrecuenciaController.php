@@ -17,14 +17,6 @@ class FrecuenciaController extends Controller
         //
     }
     
-    public function obtenerFrecuencia(Request $request,$id){
-        if($request->ajax()){
-            $fil = $id.substr(1,1);
-            $frecuencia = Frecuencia::getFrecuencia($fil);
-            return response()->json($frecuencia);
-        }
-        
-    }
 
     /**
      * Show the form for creating a new resource.
