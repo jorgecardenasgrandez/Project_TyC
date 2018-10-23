@@ -35,6 +35,11 @@ Route::resource('matricula','MatriculaController');
 Route::get('/traerfrecuencia/{id}','MatriculaController@obtenerFrecuencia');
 Route::get('/traerturno/{id}','MatriculaController@obtenerTurno');
 
+Route::get('/consultarMatriculados',function(){
+    return view('alumno_matriculados');
+});
+
+
 Route::get('/visualizarMatricula','MatriculaController@visualizarMatricula');
 /*  RUTAS PARA LA GESTION DE ALUMNOS */
 Route::resource('alumno','AlumnoController');
