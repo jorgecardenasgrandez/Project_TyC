@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Profesor;
+use App\Modulo;
+use App\Turno;
+use App\Frecuencia;
+use App\Grupo;
 
 class GrupoController extends Controller
 {
@@ -23,7 +28,11 @@ class GrupoController extends Controller
      */
     public function create()
     {
-        return view('asignar_profesor');
+        $profesores = Profesor::all();
+        $modulos = Modulo::all();
+        $turnos = Turno::all();
+        $frecuencias = Frecuencia::all();
+        return view('asignar_profesor',compact('profesores','modulos','turnos','frecuencias'));
     }
 
     /**
@@ -34,7 +43,15 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Grupo::create([
+                'fecInicio' => request('fecha-inicio'),
+                'fecFin' => request('fecha-fin'),
+                'profesor_id' => request('nombres'),
+                'modulo_id' => request('modulo'),
+                'turno_id' => request('turno'),
+                'frecuencia_id' => request('frecuencia')                    //el profesor esta activo
+        ]);
+        return view('index');
     }
 
     /**

@@ -18,7 +18,7 @@ class CreateTurnoTable extends Migration
             $table->string('descripcion',20);
             $table->time('horaInicio');
             $table->time('horaFin');
-            $table->string('observacion',100);
+            $table->string('observacion',100)->nullable($value = true);
             $table->timestamps();
         });
     }

@@ -17,7 +17,7 @@ class CreateFrecuenciaTable extends Migration
             $table->increments('id');
             $table->string('descripcion',20);
             $table->string('detalle',100);
-            $table->string('observacion',100);
+            $table->string('observacion',100)->nullable($value=true);
             $table->timestamps();
         });
     }

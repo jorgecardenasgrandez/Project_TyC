@@ -14,7 +14,6 @@ class CreateGrupoTable extends Migration
     public function up()
     {
         Schema::create('grupos', function (Blueprint $table) {
-            
             $table->increments('id');
             $table->date('fecInicio');
             $table->date('fecFin');
@@ -30,8 +29,6 @@ class CreateGrupoTable extends Migration
             
             $table->integer('frecuencia_id')->unsigned();
             $table->foreign('frecuencia_id')->references('id')->on('frecuencias')->onDelete('cascade');
-            
-            
             $table->timestamps();
         });
     }
