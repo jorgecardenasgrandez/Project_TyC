@@ -1,7 +1,7 @@
 $("#grupo").change(function(event){
     $.get("/obtenergrupo/"+event.target.value+"",function(response,grupo){
     
-        //console.log(response);
+        console.log(response);
         $("#fechas").val(response.fecInicio+'    -    '+response.fecFin);
         $("#grupo-id").attr("value",response.id);
     });

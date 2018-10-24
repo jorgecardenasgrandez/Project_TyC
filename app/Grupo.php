@@ -16,6 +16,10 @@ class Grupo extends Model
         return Grupo::where('modulo_id',$id)->get();
     }
     
+    public static function buscarGrupo($id){
+        return Grupo::find($id);
+    }
+    
     function modulo(){
         return $this->belongsTo(Modulo::class);
     }

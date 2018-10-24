@@ -141,7 +141,7 @@
                         <tr>
                             <th scope="row">{{ $mtc->id }}</th>
                             <td>{{ $mtc->numReciboPago }}</td>
-                            <td>{{ $mtc->estudiante_id }}</td>
+                            <td>{{ $mtc->estudiante_dni }}</td>
                             <td>{{ $mtc->fecMat }}</td>
                             <td>{{ $mtc->montoLabo }}</td>
                             <td>{{ $mtc->grupo_id }}</td>

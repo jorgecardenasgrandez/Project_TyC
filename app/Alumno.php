@@ -12,6 +12,6 @@ class Alumno extends Model
     'ocupacion','telefono','correo','domicilio','idDistritoDom','estado_alumno'];
     
     function matriculas(){
-        return $this->hasMany(Matricula::class,'estudiante_id','dni');
+        return $this->hasMany(Matricula::class,'estudiante_dni','dni');
     }
 }

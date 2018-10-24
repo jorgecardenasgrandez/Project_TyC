@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label class="titulo-label">Trancurso</label>
-                            <input type="text" class="form-control" id="fechas">
+                            <input type="text" class="form-control" id="fechas" name="fechas">
                         </div>
                     </div>
                     
