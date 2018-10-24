@@ -192,7 +192,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="">Reporte de alumnos matriculados</a>
+                                        <a href="/consultarMatriculados">Reporte de alumnos matriculados</a>
                                     </li>
                                     <li>
                                         <a href="">Reporte de ...</a>

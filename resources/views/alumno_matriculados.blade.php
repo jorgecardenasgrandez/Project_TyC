@@ -5,7 +5,7 @@
 
     <div class="contenido-main">
                 <div class="titulo-formulario">
-                    <h2>Reporte de <span>Alumnos matriculados</span></h2>
+                    <h2>Consultas <span>Alumnos matriculados</span></h2>
                 </div>
 
                 <form>
