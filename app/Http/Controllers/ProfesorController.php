@@ -27,6 +27,14 @@ class ProfesorController extends Controller
         return view('create_profesor');
     }
     
+    public function obtenerProfesor(Request $request, $id){
+        
+        if($request->ajax()){
+            $prof = Profesor::getProfesor($id);
+            return response()->json($prof);
+        }
+        
+    }
    
 
     /**
@@ -76,7 +84,8 @@ class ProfesorController extends Controller
     
     public function edit_inicial()
     {
-        return view('profesor_modificar');
+        $profesores = Profesor::all();
+        return view('profesor_modificar',compact('profesores'));
     }
     
     /**

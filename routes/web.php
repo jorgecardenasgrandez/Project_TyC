@@ -24,6 +24,8 @@ Route::get('/crear_profesor', 'ProfesorController@store');
 
 Route::resource('profesor','ProfesorController');
 Route::get('/editar_profesor','ProfesorController@edit_inicial' );
+Route::get('/obtenerProfesor/{id}','ProfesorController@obtenerProfesor' );
+
 
 /*  RUTAS PARA LA GESTION DE GRUPOS */
 Route::resource('grupo','GrupoController');

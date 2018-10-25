@@ -43,7 +43,7 @@ class GrupoController extends Controller
         
     }
     
-    public function BuscarGrupo(Request $request,$id){
+    public function BuscarGrupo(Request $request, $id){
         $fil2 = substr($id,0,1);
         if($request->ajax()){
             $grupo = Grupo::buscarGrupo($fil2);
