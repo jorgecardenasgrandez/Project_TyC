@@ -17,8 +17,8 @@ class CreateProvinciaTable extends Migration
             $table->increments('id');
             $table->string('nombre',50);
             
-            $table->integer('idDepartamento')->unsigned();
-            $table->foreign('idDepartamento')->references('id')->on('departamentos')->onDelete('cascade');
+            $table->integer('departamento_id')->unsigned();
+            $table->foreign('departamento_id')->references('id')->on('departamentos')->onDelete('cascade');
             $table->timestamps();
         });
     }

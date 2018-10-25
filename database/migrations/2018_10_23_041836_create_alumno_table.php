@@ -27,8 +27,8 @@ class CreateAlumnoTable extends Migration
             $table->string('correo',50);
             $table->string('domicilio',100);
             
-            $table->integer('idDistritoDom')->unsigned();
-            $table->foreign('idDistritoDom')->references('id')->on('distritos')->onDelete('cascade');
+            $table->integer('distrito_id')->unsigned();
+            $table->foreign('distrito_id')->references('id')->on('distritos')->onDelete('cascade');
             
             $table->tinyInteger('estado_alumno');
             $table->timestamps();

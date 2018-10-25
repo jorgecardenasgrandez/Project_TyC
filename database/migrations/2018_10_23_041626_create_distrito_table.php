@@ -17,8 +17,8 @@ class CreateDistritoTable extends Migration
             $table->increments('id');
             $table->string('nombre',50);
             
-            $table->integer('idProvincia')->unsigned();
-            $table->foreign('idProvincia')->references('id')->on('provincias')->onDelete('cascade');
+            $table->integer('provincia_id')->unsigned();
+            $table->foreign('provincia_id')->references('id')->on('provincias')->onDelete('cascade');
             $table->timestamps();
         });
     }

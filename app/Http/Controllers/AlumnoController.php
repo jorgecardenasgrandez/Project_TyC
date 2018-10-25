@@ -59,7 +59,7 @@ class AlumnoController extends Controller
                 'telefono' => request('numero'),
                 'correo' => request('email'),
                 'domicilio' => request('domicilio'),
-                'idDistritoDom' => request('distrito'),
+                'distrito_id' => request('distrito'),
                 'estado_alumno' => 1                     //el profesor esta activo
         ]);
         return view('index');
