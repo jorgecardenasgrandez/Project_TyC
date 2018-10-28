@@ -27,10 +27,10 @@
 		<div class="container-login100" style="background-image: url(../public/img/bg-01.jpg)">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-60 p-b-45"> 
 			    <header> CETPRO JOSE GALVEZ </header>
-				<form class="login100-form validate-form">
-
+				<form class="login100-form validate-form" action="/home" method="POST">
+				@csrf
 					<span class="login100-form-title p-b-49">
-						</br><br></br><br></br>
+						<br><br><br><br>
 					</span>
 
 					<div class="wrap-input100 validate-input m-b-23">

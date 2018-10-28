@@ -11,9 +11,9 @@
 |
 */
 use App\Alumno;
-Route::get('/', function () {
+/* Route::get('/', function () {
     return view('index');
-});
+});*/
 
 
 /*          RUTAS PARA LA GESTION DE PROFESOR
@@ -79,6 +79,18 @@ Route::post('/RegistroOpcionOcupacional','OpcionocupacionalController@registroOp
  * |
  */
 
-Route::get('/visualizarAlumno','GAlumnoMatriculaController@index');
-Route::get('/alumnoReporteMatricula','GAlumnoMatriculaController@reporteMatricula');
-Route::get('mostrarDetalleMatricula','GAlumnoMatriculaController@mostrarDetalleMatricula');
+Route::get('/visualizarAlumno','GAlumnoMatriculaController@index')->name('alumno.index');
+Route::get('/alumnoReporteMatricula','GAlumnoMatriculaController@reporteMatricula')->name('reporte.index');
+Route::get('/mostrarDetalleMatricula','GAlumnoMatriculaController@mostrarDetalleMatricula')->name('reporte.show');
+
+Route::get('/pruebaRuta','GAlumnoMatriculaController@pruebaRuta')
+->name('alumnos.index');
+Route::get('/pruebaIndice/{dni}','GAlumnoMatriculaController@pruebaIndice')
+->name('alumnos.show');
+
+
+/**
+ * LOGIN
+ */
+Route::get('/','UsuarioController@index')->name('login.index');
+Route::post('/home','UsuarioController@verificarUsuario');
