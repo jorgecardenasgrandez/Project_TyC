@@ -77,7 +77,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('profesor.create') }}">Agregar</a>
+                                        <a href="profesor/create">Agregar</a>
                                     </li>
                                     <li>
                                         <a href="">Buscar</a>
