@@ -13,4 +13,5 @@ class Profesor extends Model
         $profesor = Profesor::find($id);
         return $profesor;
     }
+    
 }

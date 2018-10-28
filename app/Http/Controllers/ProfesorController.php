@@ -82,6 +82,26 @@ class ProfesorController extends Controller
         return view('libro.edit',compact('profe'));
     }
     
+    public function modificar(Request $request)
+    {
+        /*
+        $this->validate($request,[ 'nombre'=>'required', 'resumen'=>'required', 'npagina'=>'required', 'edicion'=>'required', 'autor'=>'required', 'npagina'=>'required', 'precio'=>'required']);
+        */
+        $idprofesor = request('idprof');
+        $profesor = Profesor::getProfesor((integer)$idprofesor);
+        $profesor->nom_prof = request('nombres');
+        $profesor->apePaterno_prof = request('apellido-paterno');
+        $profesor->apeMaterno_prof = request('apellido-materno');
+        $profesor->sexo_prof = request('sexo');
+        $profesor->fechaNac_prof = request('fecha-nacimiento');
+        $profesor->estado_prof = request('estado');
+        $profesor->save();
+        
+        return redirect()->route('profesor.index')->with('message','Registro actualizado satisfactoriamente');
+ 
+        //return view('index');
+    }
+    
     public function edit_inicial()
     {
         $profesores = Profesor::all();
@@ -97,7 +117,7 @@ class ProfesorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

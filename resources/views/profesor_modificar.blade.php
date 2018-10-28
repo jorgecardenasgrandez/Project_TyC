@@ -18,22 +18,18 @@
                                         @foreach($profesores as $pro)
                                             <option value="{{$pro->id}}">{{$pro->nom_prof . " " . $pro->apePaterno_prof. " " .$pro->apeMaterno_prof}}</option>
                                         @endforeach
-                                    </select>
-                                    
-                            
+                                    </select>                          
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <form>
- 
+                <form class="formulario" action= "/modificarprofesor" role="form" method="POST">
+                    {{csrf_field()}}
                     <div class="form-group">
                         <label class="titulo-label">Nombres</label>
                         <input type="text" class="form-control" name="nombres" id="nombres" required>
                     </div>
-
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="titulo-label">Apellido Paterno</label>
@@ -54,12 +50,26 @@
                             <option value="f">Femenino</option>
                         </select>
                     </div>
-
-                    <div class="form-group">
-                        <label class="titulo-label">Fecha de nacimiento</label>
-                        <input type="date" class="form-control" name="fecha-nacimiento" id="fecha-nacimiento" required>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="titulo-label">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" name="fecha-nacimiento" id="fecha-nacimiento" required>
+                        </div>
+                        
+                        <div class="form-group col-md-6">
+                            <label class="titulo-label">Estado</label>
+                            <select class="form-control" name="estado" id="estado">
+                                <option type="number_format" value= "1">Activo</option>
+                                <option type="number_format" value= "0">Inhabilitado</option>
+                            </select>
+                        </div>
                     </div>
-
+                    
+                    <div class="form-group">
+                        <input type="text"  class="form-control" id="idprof" name="idprof" hidden>
+                    </div>
+                    
                     <div class="botones">
                         <button type="submit" class="btn boton-registrar btn-success col-xs-4">Modificar</button>
                         <button type="reset" class="btn boton-limpiar btn-warning col-xs-4">Limpiar</button>

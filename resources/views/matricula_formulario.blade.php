@@ -71,9 +71,7 @@
                     </div>
 
                 </form>
-                
-                <script src="/js/actualizar_select.js"></script>
-            
+                            
     </div>
 
 @endsection
