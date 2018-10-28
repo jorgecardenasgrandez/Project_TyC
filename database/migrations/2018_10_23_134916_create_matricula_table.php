@@ -16,7 +16,7 @@ class CreateMatriculaTable extends Migration
         Schema::create('matriculas', function (Blueprint $table) {
             $table->increments('id');
             $table->date('fecMat');
-            $table->decimal('montoLabo',4,2);
+            $table->decimal('montoLabo',6,2);
             
             $table->char('estudiante_dni',8);
             $table->foreign('estudiante_dni')->references('dni')->on('alumnos')->onDelete('cascade');

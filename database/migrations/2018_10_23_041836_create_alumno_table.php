@@ -20,9 +20,9 @@ class CreateAlumnoTable extends Migration
             $table->string('apeMaterno',20);
             $table->char('sexo',1);
             $table->string('ecivil',15);
-            $table->string('gradoInstruccion',20);
+            $table->string('gradoInstruccion',40);
             $table->date('fnacimiento');
-            $table->string('ocupacion',15);
+            $table->string('ocupacion',30);
             $table->char('telefono',9);
             $table->string('correo',50);
             $table->string('domicilio',100);

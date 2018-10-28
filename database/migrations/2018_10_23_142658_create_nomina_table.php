@@ -20,8 +20,8 @@ class CreateNominaTable extends Migration
             $table->tinyInteger('nota3');
             $table->string('observacion',100)->nullable($value = true);
             
-            $table->integer('matricula_cod_inscripcion')->unsigned();
-            $table->foreign('matricula_cod_inscripcion')->references('id')->on('matriculas')->onDelete('cascade');
+            $table->integer('matricula_id')->unsigned();
+            $table->foreign('matricula_id')->references('id')->on('matriculas')->onDelete('cascade');
             $table->timestamps();
         });
     }
