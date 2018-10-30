@@ -20,6 +20,13 @@ class CreateProfesorTable extends Migration
             $table->string('apeMaterno_prof');
             $table->char('sexo_prof',1);
             $table->date('fechaNac_prof');
+            $table->string('domicilio');
+                
+            $table->integer('distritoDom_id')->unsigned();
+            $table->foreign('distritoDom_id')->references('id')->on('distritos')->onDelete('cascade');
+            
+            $table->string('dni')->unique();
+            $table->string('correo')->unique();
             $table->tinyInteger('estado_prof');
             $table->timestamps();
         });
