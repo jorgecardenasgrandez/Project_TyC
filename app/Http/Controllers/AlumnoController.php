@@ -7,6 +7,7 @@ use App\Alumno;
 use App\Distrito;
 use App\Provincia;
 use App\Departamento;
+use App\Usuario;
 
 class AlumnoController extends Controller
 {
@@ -62,6 +63,15 @@ class AlumnoController extends Controller
                 'distrito_id' => request('distrito'),
                 'estado_alumno' => 1                     //el profesor esta activo
         ]);
+        
+        Usuario::create(
+            [
+                'usuario'=>request('email'),
+                'password'=>request('dni'),
+                'usuario_type'=>'alumno'
+            ]
+        );
+        
         return view('index');
     }
 
