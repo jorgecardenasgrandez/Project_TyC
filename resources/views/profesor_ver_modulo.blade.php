@@ -11,31 +11,29 @@
                 <table class="table">
                     <thead class="bg-primary">
                         <tr>
+                            <th scope="col" width="15%">Nro. Grupo</th>
                             <th scope="col" width="20%">Modulo</th>
-                            <th scope="col" width="25%">Frecuencia</th>
-                            <th scope="col" width="25%">Hora</th>
+                            <th scope="col" width="15%">Turno</th>
+                            <th scope="col" width="15%">Frecuencia</th>
+                            <th scope="col" width="20%">Inicio</th>
+                            <th scope="col" width="25%">Fin</th>
                             <th scope="col" width="10%">Alumnos</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">Modulo1</th>
-                            <td>Lunes</td>
-                            <td>8:00am - 12:00m </td>
-                            <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#miModal">Ver</button></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Modulo2</th>
-                            <td>Miercoles</td>
-                            <td>2:00pm - 4:00pm</td>
-                            <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#miModal">Ver</button></td>
-                        </tr>
-                        <tr>
-                          <th scope="row">Modulo3</th>
-                          <td>Viernes</td>
-                          <td>12:00m - 2:00pm </td>
-                          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#miModal">Ver</button></td>
-                        </tr>
+                        @foreach($gruposprofesor as $gru)
+                        
+                            <tr>
+                                <th scope="row">{{$gru['nro']}}</th>
+                                <td>{{$gru['modulo']}}</td>
+                                <td>{{$gru['turno']}}</td>
+                                <td>{{$gru['frecuencia']}}</td>
+                                <td>{{$gru['inicio']}}</td>
+                                <td>{{$gru['fin']}}</td>
+                                <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#miModal">Ver</button></td>
+                            </tr>
+                        
+                        @endforeach
                     </tbody>
                 </table>
                 
