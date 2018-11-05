@@ -16,7 +16,7 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('profesor_index');
     }
 
     /**
@@ -68,7 +68,8 @@ class ProfesorController extends Controller
             [
                 'usuario'=>request('correo'),
                 'password'=>request('dni'),
-                'usuario_type'=>'profesor'
+                'usuario_type'=>'profesor',
+                'estado'=>'desconectado'
             ]
         );
         return view('index');
@@ -92,11 +93,7 @@ class ProfesorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $profe=Profesor::find($id);
-        return view('libro.edit',compact('profe'));
-    }
+    
     
     public function modificar(Request $request)
     {
@@ -117,9 +114,9 @@ class ProfesorController extends Controller
         $profesor->correo = request('correo');
         $profesor->save();
         
-        return redirect()->route('profesor.index')->with('message','Registro actualizado satisfactoriamente');
+        //return redirect()->route('profesor.index')->with('message','Registro actualizado satisfactoriamente');
  
-        //return view('index');
+        return view('index');
     }
     
     public function edit_inicial()
@@ -150,5 +147,25 @@ class ProfesorController extends Controller
     public function destroy($id)
     {
         //
+    }
+    
+    public function verPerfil(){
+        
+        return view('profesor_informacion');
+    }
+    
+    public function verModulos(){
+        
+        return view('profesor_ver_modulo');
+    }
+    
+    public function ingresarNotas(){
+        
+        return view('profesor_ingresa_nota');
+    }
+    
+    public function cambiarContraseña(){
+        
+        return view('profesor_cambiar_contraseña');
     }
 }

@@ -9,7 +9,8 @@ class Usuario extends Model
     protected $fillable=[
         'usuario',
         'password',
-        'usuario_type'
+        'usuario_type',
+        'estado'
     ];
 
     //public $timestamps='false';

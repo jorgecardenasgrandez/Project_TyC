@@ -16,10 +16,11 @@ class UsuarioSeeder extends Seeder
             [
                 'usuario'=>'administradorCetpro@gmail.com',
                 'password'=>'admi',
-                'usuario_type'=>'administrador'
+                'usuario_type'=>'administrador',
+                'estado'=>'desconectado'
             ]
         );
-
+        /*
         Usuario::create(
         [
             'usuario'=>'silvia123@gmail.com',
@@ -81,5 +82,6 @@ class UsuarioSeeder extends Seeder
             'usuario_type'=>'alumno'
         ]
         );
+        */
     }
 }

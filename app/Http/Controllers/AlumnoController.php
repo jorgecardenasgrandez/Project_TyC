@@ -68,7 +68,8 @@ class AlumnoController extends Controller
             [
                 'usuario'=>request('email'),
                 'password'=>request('dni'),
-                'usuario_type'=>'alumno'
+                'usuario_type'=>'alumno',
+                'estado'=>'desconectado'
             ]
         );
         
