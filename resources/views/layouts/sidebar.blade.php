@@ -209,6 +209,12 @@
                                 </ul>
                             </div>
                         </li>
+                        <li>
+                            <a href="/salir/{{$user->usuario}}">
+                                <i class="fa fa-ban"></i>
+                                <span>Cerrar sesion</span>
+                            </a>
+                        </li>
 
                     </ul>
                 </div>
