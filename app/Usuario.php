@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Alumno;
+use App\Profesor;
 
 class Usuario extends Model
 {
@@ -39,5 +41,8 @@ class Usuario extends Model
         return Usuario::where('usuario',compact('username'))->where('password',compact('pass'))->first();
     }
 
+    static function getDatosAlumno($email){
+        return Alumno::where('correo',compact('email'))->first(); 
+    }
     
 }

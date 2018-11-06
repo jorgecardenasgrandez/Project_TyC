@@ -80,9 +80,9 @@ Route::post('/RegistroOpcionOcupacional','OpcionocupacionalController@registroOp
  * |
  */
 
-Route::get('/visualizarAlumno','GAlumnoMatriculaController@index')->name('alumno.index');
+Route::get('/alumnoIndex','GAlumnoMatriculaController@index')->name('alumno.index');
 Route::get('/alumnoReporteMatricula','GAlumnoMatriculaController@reporteMatricula')->name('reporte.index');
-Route::get('/mostrarDetalleMatricula','GAlumnoMatriculaController@mostrarDetalleMatricula')->name('reporte.show');
+//Route::get('/mostrarDetalleMatricula','GAlumnoMatriculaController@mostrarDetalleMatricula')->name('reporte.show');
 
 Route::get('/pruebaRuta','GAlumnoMatriculaController@pruebaRuta')
 ->name('alumnos.index');

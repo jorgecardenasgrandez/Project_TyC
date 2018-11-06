@@ -8,8 +8,12 @@ use App\Alumno;
 use App\Grupo;
 class GAlumnoMatriculaController extends Controller
 {
-    function index(){
-        return view('alumno_index');
+    function index(Alumno $alumno){
+        /*$alumno=Alumno::where("dni",compact('dni'))->first();
+        //dd($alumno->nombres);
+        //$nombre_alumno=$alumno->nombres;
+        dd($alumno->nombres);*/
+        return view('alumno_index',compact('alumno'));
     }
 
     function reporteMatricula(){

@@ -35,7 +35,7 @@
 
 					<div class="wrap-input100 validate-input m-b-23">
 						<span class="label-input100"> Nombre de Usuario: </span>
-						<input class="input100" type="text" name="username" placeholder="Escribe tu nombre de usuario" required>
+						<input class="input100" type="text" name="username" placeholder="Escribe tu nombre de usuario" value="{{ old('username') }}" required>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 
@@ -59,7 +59,7 @@
 							</button>
 						</div>
 					</div>
-
+					
 				</form>
 			</div>
 		</div>

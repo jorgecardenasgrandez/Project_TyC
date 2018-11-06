@@ -22,12 +22,22 @@ class UsuarioController extends Controller
         
         $usuario=Usuario::verificacion($data['username'],$data['pass']);
         
-        if($usuario->esAdmin()){
-            return view('index');
-        }else if($usuario->esAlumno()){
-            return view('alumno_index');
-        }else{
-            return "PROFESOR";
+        if(!empty($usuario)){
+            if($usuario->esAdmin()){
+
+                return view('index');
+            }else if($usuario->esAlumno()){
+
+                $alumno=Usuario::getDatosAlumno($usuario->usuario);
+                //return redirect()->route('alumno.index',$alumno);
+                return view('alumno_index',['alumno'=>$alumno]); 
+                //return redirect()->route('alumno.index');
+            }else{
+                return "PROFESOR";
+            }
+        }
+        else{
+            return redirect()->route('login.index');
         }
     }
 }
