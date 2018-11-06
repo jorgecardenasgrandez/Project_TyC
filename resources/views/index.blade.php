@@ -5,7 +5,7 @@
 
     <div class="contenido-main">
                 <div class="titulo-formulario">
-                    <h2>Bienvenido, revisa nuestras <span>Novedades</span> para hoy</h2>
+                    <h2>Bienvenido administrador, revisa nuestras <span>Novedades</span> para hoy</h2>
                 </div>
     </div>
 

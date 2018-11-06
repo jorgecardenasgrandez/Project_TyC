@@ -42,13 +42,27 @@
                     </div>
 
                     
-                    <div class="form-group">
-                        <label class="titulo-label">Sexo</label>                            
-                        <select  class="form-control" name="sexo" id="sexo">
-                            <option value="Seleccionar" selected>Seleccionar</option>
-                            <option value="m">Masculino</option>
-                            <option value="f">Femenino</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group col-md-2">
+                            <label class="titulo-label">Sexo</label>                            
+                            <select  class="form-control" name="sexo">
+                                <option value="m" selected>Masculino</option>
+                                <option value="f">Femenino</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="titulo-label">Domicilio</label>
+                            <input type="text" class="form-control" name="domicilio" id="domicilio" placeholder="" required>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label class="titulo-label">Distrito</label>                            
+                            <select  class="form-control" name="distrito" id="distrito">
+                                <option value="" selected>Seleccionar</option>
+                                @foreach($distritos as $dis)
+                                    <option value="{{$dis->id}}">{{$dis->nombre}}</option>
+                                @endforeach
+                            </select>
+                        </div>
                     </div>
                     
                     <div class="form-row">
@@ -63,6 +77,17 @@
                                 <option type="number_format" value= "1">Activo</option>
                                 <option type="number_format" value= "0">Inhabilitado</option>
                             </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label class="titulo-label">DNI</label>
+                            <input type="text" class="form-control" name="dni" id="dni" placeholder="" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="titulo-label">Correo Electronico</label>
+                            <input type="text" class="form-control" name="correo" id="correo" placeholder="" required>
                         </div>
                     </div>
                     

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuario extends Migration
+class CreateUsuarioTable extends Migration
 {
     /**
      * Run the migrations.
@@ -17,6 +17,7 @@ class CreateUsuario extends Migration
             $table->string('usuario',50)->unique();
             $table->string('password',30);
             $table->string('usuario_type',20);
+            $table->string('estado',15);
             $table->timestamps();
         });
     }

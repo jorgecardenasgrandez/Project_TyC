@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Usuario;
+use App\Profesor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
+
 
 class UsuarioController extends Controller
 {
@@ -22,22 +25,24 @@ class UsuarioController extends Controller
         
         $usuario=Usuario::verificacion($data['username'],$data['pass']);
         
-        if(!empty($usuario)){
-            if($usuario->esAdmin()){
-
-                return view('index');
-            }else if($usuario->esAlumno()){
-
-                $alumno=Usuario::getDatosAlumno($usuario->usuario);
-                //return redirect()->route('alumno.index',$alumno);
-                return view('alumno_index',['alumno'=>$alumno]); 
-                //return redirect()->route('alumno.index');
-            }else{
-                return "PROFESOR";
-            }
+        $usuario->estado = 'conectado';
+        $usuario->save();
+        
+        if($usuario->esAdmin()){
+            return view('index');
+        }else if($usuario->esAlumno()){
+            return view('alumno_index');
+        }else{
+            return view('profesor_index');
         }
-        else{
-            return redirect()->route('login.index');
-        }
+    }
+    
+    function cerrarSesion($usuario){
+        
+        $user = Usuario::where('usuario',$usuario)->first();
+        $user->estado = 'desconectado';
+        $user->save();
+        
+        return view('login');
     }
 }

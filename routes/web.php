@@ -11,10 +11,14 @@
 |
 */
 use App\Alumno;
+use App\Usuario;
 /* Route::get('/', function () {
     return view('index');
 });*/
 
+Route::get('/prueba', function () {
+    return view('vistas3.admnistrador_alumno_buscar');
+});
 
 /*          RUTAS PARA LA GESTION DE PROFESOR
 Route::get('/registrar_profesor', 'ProfesorController@registrar');
@@ -22,10 +26,17 @@ Route::get('/modificar_profesor', 'ProfesorController@modificar');
 Route::get('/crear_profesor', 'ProfesorController@store');
 */
 
+
 Route::resource('profesor','ProfesorController');
 Route::get('/editar_profesor','ProfesorController@edit_inicial' );
 Route::post('/modificarprofesor','ProfesorController@modificar' );
 Route::get('/obtenerProfesor/{id}','ProfesorController@obtenerProfesor' );
+
+Route::get('/perfilprofesor','ProfesorController@verPerfil' );
+Route::get('/modulosprofesor','ProfesorController@verModulos' );
+Route::get('/ingresanotas','ProfesorController@ingresarNotas' );
+Route::get('/cambiocontraseña','ProfesorController@cambiarContraseña' );
+
 
 
 /*  RUTAS PARA LA GESTION DE GRUPOS */
@@ -95,3 +106,4 @@ Route::get('/pruebaIndice/{dni}','GAlumnoMatriculaController@pruebaIndice')
  */
 Route::get('/','UsuarioController@index')->name('login.index');
 Route::post('/home','UsuarioController@verificarUsuario');
+Route::get('/salir/{usuario}','UsuarioController@cerrarSesion');
