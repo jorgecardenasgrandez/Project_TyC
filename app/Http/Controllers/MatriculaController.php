@@ -119,4 +119,34 @@ class MatriculaController extends Controller
     {
         //
     }
+
+    function mostrarMatriculados(){
+        /**
+         * MOSTRAR A TODOS LOS ALUMNOS MATRICULADOS
+         */
+        $matriculas=Matricula::all();
+
+        return view('alumnos_matriculados',['matriculas'=>$matriculas]);
+    }
+
+    function mostrarDetalleReporteMatricula($idGrupo){
+        $grupo=Grupo::find($idgrupo);
+        $modulo=$grupo->modulo;
+
+        $grupo=Grupo::find($idgrupo);
+        $profesor=$grupo->profesor;
+
+        $grupo=Grupo::find($idgrupo);
+        $turno=$grupo->turno;
+
+        $grupo=Grupo::find($idgrupo);
+        $frecuencia=$grupo->frecuencia;
+
+        return view('VISTA_NO_CREADA_TODAVIA',[
+            'modulo'=>$modulo,
+            'profesor'=>$profesor,
+            'turno'=>$turno,
+            'frecuencia'=>$frecuencia
+        ]);
+    }
 }
