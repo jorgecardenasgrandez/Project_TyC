@@ -14,7 +14,7 @@
 
                 <div class="sidebar-header">
                     <div class="user-pic">
-                        <img class="img-responsive img-rounded" src="img/user.jpg" alt="User picture">
+                        <img class="img-responsive img-rounded" src="/img/user.jpg" alt="User picture">
                     </div>
                     <div class="user-info">
                         <span class="user-name">{{ $user->nom_prof}}

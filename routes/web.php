@@ -36,7 +36,7 @@ Route::get('/perfilprofesor','ProfesorController@verPerfil' );
 Route::get('/modulosprofesor','ProfesorController@verModulos' );
 Route::get('/ingresanotas','ProfesorController@ingresarNotas' );
 Route::get('/cambiocontraseña','ProfesorController@cambiarContraseña' );
-
+Route::get('/alumnosXmodulo/{id_grupo}','ProfesorController@mostrarAlumnos_modulo' );
 
 
 /*  RUTAS PARA LA GESTION DE GRUPOS */

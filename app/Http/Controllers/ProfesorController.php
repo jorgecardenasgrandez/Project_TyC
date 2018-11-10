@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Profesor;
 use App\Distrito;
 use App\Usuario;
+use App\Matricula;
+use App\Alumno;
+use App\Grupo;
 
 class ProfesorController extends Controller
 {
@@ -150,22 +153,40 @@ class ProfesorController extends Controller
     }
     
     public function verPerfil(){
-        
         return view('profesor_informacion');
     }
     
     public function verModulos(){
-        
         return view('profesor_ver_modulo');
     }
     
     public function ingresarNotas(){
-        
         return view('profesor_ingresa_nota');
     }
     
     public function cambiarContraseña(){
-        
         return view('profesor_cambiar_contraseña');
+    }
+    
+    public function mostrarAlumnos_modulo($id_grupo){
+        $matriculas = Matricula::where('grupo_id',$id_grupo)->get();
+        $grupo = Grupo::find($id_grupo);
+        $alumnosdetalles = array();
+        $fil=0;
+        
+        foreach($matriculas as $matricula){
+            
+            $alumno = Alumno::find($matricula->estudiante_dni);
+            $alumnosdetalles[$fil] = array('nro' =>$alumno->dni,
+                                                  'apellido-paterno'=>$alumno->apePaterno,
+                                                  'apellido-materno'=>$alumno->apeMaterno,
+                                                  'nombres' =>$alumno->nombres,
+                                                  'fnacimiento' =>$alumno->fnacimiento
+                                            );
+            $fil++;
+            
+        }
+        
+        return view('profesor_alumnos_x_modulo', compact('alumnosdetalles','grupo'));
     }
 }

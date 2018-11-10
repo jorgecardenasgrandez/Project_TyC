@@ -16,8 +16,8 @@ class ComposerServiceProvider extends ServiceProvider
     {
        /* View::composers(['profesor_index','profesor_informacion','profesor_ver_modulo','profesor_ingresa_nota','profesor_cambiar_contraseña'],'App\Http\ViewComposers\ProfileProfesorComposer');
         */
-        View::composers(['App\Http\ViewComposers\ProfileProfesorComposer' => ['profesor_index','profesor_informacion','profesor_ver_modulo','profesor_ingresa_nota','profesor_cambiar_contraseña'],
-                       'App\Http\ViewComposers\ProfileAdminComposer' => 'index']);
+        View::composers(['App\Http\ViewComposers\ProfileProfesorComposer' => ['profesor_index','profesor_informacion','profesor_ver_modulo','profesor_ingresa_nota','profesor_cambiar_contraseña','profesor_alumnos_x_modulo'],
+                       'App\Http\ViewComposers\ProfileAdminComposer' => ['index','alumno_registrar','matricula_formulario']]);
     }
 
     /**

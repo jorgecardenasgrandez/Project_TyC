@@ -32,7 +32,6 @@ class ProfileProfesorComposer {
             $tur = Turno::find($grupo->turno_id);
             $fre = Frecuencia::find($grupo->frecuencia_id);
             
-            
             $grupodetalles[$fil] = array('nro' =>$grupo->id ,
                                                   'modulo'=>$mod->nombreMod,
                                                   'turno' =>$tur->descripcion,

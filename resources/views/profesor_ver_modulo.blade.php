@@ -30,13 +30,13 @@
                                 <td>{{$gru['frecuencia']}}</td>
                                 <td>{{$gru['inicio']}}</td>
                                 <td>{{$gru['fin']}}</td>
-                                <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#miModal">Ver</button></td>
+                                <td><a class="btn btn-warning" href="/alumnosXmodulo/{{$gru['nro']}}">Ver</a></td>
                             </tr>
                         
                         @endforeach
                     </tbody>
                 </table>
-                
+                <!--
                 <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
@@ -83,7 +83,8 @@
                             </div>
                         </div>
                     </div>
-                </div>    
+                </div>
+                -->    
     </div>
 
 @endsection
