@@ -25,16 +25,22 @@ class UsuarioController extends Controller
         
         $usuario=Usuario::verificacion($data['username'],$data['pass']);
         
-        $usuario->estado = 'conectado';
-        $usuario->save();
-        
-        if($usuario->esAdmin()){
-            return view('index');
-        }else if($usuario->esAlumno()){
-            return view('alumno_index');
+        if(!empty($usuario)){
+            $usuario->estado = 'conectado';
+            $usuario->save();
+
+            if($usuario->esAdmin()){
+                return view('index');
+            }else if($usuario->esAlumno()){
+                $alumno_verificado=Usuario::getDatosAlumno($usuario->usuario);
+                return view('alumno_index',['alumno_verificado'=>$alumno_verificado]);
+            }else{
+                return view('profesor_index');
+            }
         }else{
-            return view('profesor_index');
+            return redirect()->route('login.index');
         }
+        
     }
     
     function cerrarSesion($usuario){

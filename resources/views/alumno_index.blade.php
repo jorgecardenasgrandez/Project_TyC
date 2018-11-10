@@ -5,7 +5,7 @@
 
     <div class="contenido-main">
                 <div class="titulo-formulario">
-                    <h2>Bienvenido {{ ucwords($alumno->nombres) }}, revisa nuestras <span>Novedades</span> para hoy</h2>
+                    <h2>Bienvenido {{ ucwords($alumno_verificado->nombres) }}, revisa nuestras <span>Novedades</span> para hoy</h2>
                 </div>
     </div>
 

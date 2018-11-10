@@ -195,7 +195,7 @@
                                         <a href="/consultarMatriculados">Reporte de alumnos matriculados</a>
                                     </li>
                                     <li>
-                                        <a href="">Reporte de ...</a>
+                                        <a href="{{ route('reporte.alumnos')}}">Reporte de alumnos matriculados (JORGE)</a>
                                     </li>
                                     <li>
                                         <a href="">Reporte de ...</a>
@@ -210,7 +210,8 @@
                             </div>
                         </li>
                         <li>
-                            <a href="/salir/{{$user->usuario}}">
+                            
+                                <a href="/salir/$user->usuario">
                                 <i class="fa fa-ban"></i>
                                 <span>Cerrar sesion</span>
                             </a>

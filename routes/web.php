@@ -53,6 +53,8 @@ Route::get('/consultarMatriculados',function(){
     return view('alumno_matriculados');
 });
 
+Route::get('/reportes/alumnos','MatriculaController@mostrarMatriculados')->name('reporte.alumnos');
+Route::get('/reporte/{idGrupo}','MatriculaController@mostrarDetalleReporteMatricula')->name('reporte.detalle_grupo');
 
 Route::get('/visualizarMatricula','MatriculaController@visualizarMatricula');
 /*  RUTAS PARA LA GESTION DE ALUMNOS */
@@ -92,15 +94,26 @@ Route::post('/RegistroOpcionOcupacional','OpcionocupacionalController@registroOp
  */
 
 Route::get('/alumnoIndex','GAlumnoMatriculaController@index')->name('alumno.index');
-Route::get('/alumnoReporteMatricula','GAlumnoMatriculaController@reporteMatricula')->name('reporte.index');
+Route::get('/alumnoReporteMatricula/{dni}','GAlumnoMatriculaController@reporteMatricula')->name('reporte.matricula');
 //Route::get('/mostrarDetalleMatricula','GAlumnoMatriculaController@mostrarDetalleMatricula')->name('reporte.show');
+Route::get('/informacion/{dni}','GAlumnoMatriculaController@perfil')->name('alumno.perfil');
+Route::get('/perfilPDF','GAlumnoMatriculaController@generarPdfPerfil')->name('perfil.pdf');
+Route::get('/verReporteNotas/{dni}','GAlumnoMatriculaController@mostrarReporteNotas')->name('reporte.notas');
 
-Route::get('/pruebaRuta','GAlumnoMatriculaController@pruebaRuta')
-->name('alumnos.index');
-Route::get('/pruebaIndice/{dni}','GAlumnoMatriculaController@pruebaIndice')
-->name('alumnos.show');
+Route::get('/probandoVistas',function(){
+    return view('vistas3.alumno_reporte_notas');
+});
 
+Route::get('/probandoPDF',function(){
+    //$pdf=PDF::loadHTML('<h1> Test </h1>');
+    $pdf=PDF::loadView('welcome'); // nos permite pasarle una vista
+    //return $pdf->stream(); //nos muestra el pdf en el navegador para descargarlo
+    return $pdf->download(); // nos descarga el pdf defrente
+});
 
+View::composer(['master','category.index'],function($view){
+
+});
 /**
  * LOGIN
  */

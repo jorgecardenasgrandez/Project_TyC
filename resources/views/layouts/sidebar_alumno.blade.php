@@ -17,8 +17,8 @@
                         <img class="img-responsive img-rounded" src="img/user.jpg" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name">Jorgito
-                            <strong>Cárdenaz</strong>
+                        <span class="user-name">
+                            <strong>{{ucwords($alumno_composer->nombres)}}</strong>
                         </span>
                         <span class="user-role">Alumno</span>
                         <span class="user-status">
@@ -42,7 +42,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="index.php">
+                            <a href="{{ route('alumno.perfil',['dni'=>$alumno_composer->dni]) }}">
                                 <i class="fa fa-folder"></i>
                                 <span>Mi información</span>
                             </a>
@@ -65,10 +65,10 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('reporte.index') }}">Reporte de Matrícula</a>
+                                        <a href="{{ route('reporte.matricula',['dni'=>$alumno_composer->dni]) }}">Reporte de Matrícula</a>
                                     </li>
                                     <li>
-                                        <a href="#">Reporte de Evaluaciones</a>
+                                        <a href="{{ route('reporte.notas',['dni'=>$alumno_composer->dni]) }}">Reporte de Notas</a>
                                     </li>
                                 </ul>
                             </div>
