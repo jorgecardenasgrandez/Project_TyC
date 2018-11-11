@@ -189,4 +189,5 @@ class ProfesorController extends Controller
         
         return view('profesor_alumnos_x_modulo', compact('alumnosdetalles','grupo'));
     }
+    
 }
