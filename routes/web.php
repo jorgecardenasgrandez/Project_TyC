@@ -94,15 +94,16 @@ Route::post('/RegistroOpcionOcupacional','OpcionocupacionalController@registroOp
  * |
  */
 
+Route::get('/mostrarDetalleMatricula/{idgrupo}','GAlumnoMatriculaController@mostrarDetalleMatricula')->name('matricula.detalle');
 Route::get('/alumnoIndex','GAlumnoMatriculaController@index')->name('alumno.index');
 Route::get('/alumnoReporteMatricula/{dni}','GAlumnoMatriculaController@reporteMatricula')->name('reporte.matricula');
-//Route::get('/mostrarDetalleMatricula','GAlumnoMatriculaController@mostrarDetalleMatricula')->name('reporte.show');
-Route::get('/informacion/{dni}','GAlumnoMatriculaController@perfil')->name('alumno.perfil');
+Route::get('/probandoSidebar/{id}','GAlumnoMatriculaController@arreglarSidebar')->name('fix.sidebar');
 Route::get('/perfilPDF','GAlumnoMatriculaController@generarPdfPerfil')->name('perfil.pdf');
+Route::get('/informacion/{dni}','GAlumnoMatriculaController@perfil')->name('alumno.perfil');
 Route::get('/verReporteNotas/{dni}','GAlumnoMatriculaController@mostrarReporteNotas')->name('reporte.notas');
 
 Route::get('/probandoVistas',function(){
-    return view('vistas3.alumno_reporte_notas');
+    return view('alumno_reporte_notas');
 });
 
 Route::get('/probandoPDF',function(){

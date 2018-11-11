@@ -8,11 +8,8 @@ use App\Alumno;
 use App\Grupo;
 class GAlumnoMatriculaController extends Controller
 {
-    function index(Alumno $alumno){
-        /*$alumno=Alumno::where("dni",compact('dni'))->first();
-        //dd($alumno->nombres);
-        //$nombre_alumno=$alumno->nombres; dd($alumno->nombres); */
-        return view('alumno_index',compact('alumno'));
+    function index(){
+        return view('alumno_index');
     }
 
     function perfil($dni){
@@ -40,8 +37,16 @@ class GAlumnoMatriculaController extends Controller
     function reporteMatricula($dni){
         
         $alumno=Alumno::getAlumno($dni);
-        $matricula=$alumno->matriculas;
-        return view('alumno_reporte_matricula',['matricula'=>$matricula]);
+        $matriculs=$alumno->matriculas; //genera las matriculas que tiene el alumno
+
+        return view('alumno_reporte_matricula',[
+            'matriculs'=>$matriculs
+        ]);
+    }
+
+    function arreglarSidebar($id){
+
+        return view('probando_sidebar',compact('id'));
     }
 
     function mostrarDetalleMatricula($idgrupo){
@@ -57,7 +62,8 @@ class GAlumnoMatriculaController extends Controller
         $grupo=Grupo::find($idgrupo);
         $frecuencia=$grupo->frecuencia;
 
-        return view('alumno_reporte_matricula',[
+        return view('alumno_matricula_detalle',[
+            'grupo'=>$grupo,
             'modulo'=>$modulo,
             'profesor'=>$profesor,
             'turno'=>$turno,
