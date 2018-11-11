@@ -181,7 +181,8 @@ class ProfesorController extends Controller
                                                   'apellido-paterno'=>$alumno->apePaterno,
                                                   'apellido-materno'=>$alumno->apeMaterno,
                                                   'nombres' =>$alumno->nombres,
-                                                  'fnacimiento' =>$alumno->fnacimiento
+                                                  'fnacimiento' =>$alumno->fnacimiento,
+                                                  'nro_matricula'=>$matricula->id
                                             );
             $fil++;
             

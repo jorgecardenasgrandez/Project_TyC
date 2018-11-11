@@ -28,7 +28,7 @@
                                 <td>{{$alu['apellido-materno']}}</td>
                                 <td>{{$alu['nombres']}}</td>
                                 <td>{{$alu['fnacimiento']}}</td>
-                                <td><a class="btn btn-warning" data-toggle="modal" data-target="#miModal" onClick="setNomina('{{$alu['nro']}}','{{$alu['nombres']}}','{{$alu['apellido-paterno']}}','{{$alu['apellido-materno']}}');">Agregar</a></td>
+                                <td><a class="btn btn-warning" data-toggle="modal" data-target="#miModal" onClick="setNomina('{{$alu['nro']}}','{{$alu['nombres']}}','{{$alu['apellido-paterno']}}','{{$alu['apellido-materno']}}','{{$alu['nro_matricula']}}');">Agregar</a></td>
                             </tr>
                         
                         @endforeach
@@ -41,7 +41,7 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header  bg-primary" >
-                                <h5 class="modal-title" id="myModalLabel">NOMINA</h5>
+                                <h5 class="modal-title" id="myModalLabel"> </h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>                                  
@@ -112,11 +112,8 @@
                                         </div>
                                     </div>
                             </div>
-                            <div class="modal-footer">
-                                <div class="botones">
-                                    <button type="button" class="btn boton-registrar btn-success col-xs-4">Generar PDF</button>
-                                    <button type="button" class="btn boton-registrar btn-danger col-xs-4 " class="close" data-dismiss="modal" aria-label="Close">Cerrar</button>
-                                </div>
+                            <div class="botones">
+                                    <a type="button" class="btn boton-registrar btn-success col-xs-4" href="">Registrar</a>
                             </div>
                         </div>
                     </div>
