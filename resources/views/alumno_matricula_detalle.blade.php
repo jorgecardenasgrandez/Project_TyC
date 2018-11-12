@@ -4,7 +4,7 @@
 
             <div class="contenido-main">
                 <div class="titulo-formulario">
-                    <h2>Reportes de <span>Matrícula</span></h2>
+                    <h2>Detalle de la <span>Matrícula</span></h2>
                 </div>
 
                 <table class="table">
@@ -21,23 +21,19 @@
                     <tbody>
 
                         <tr>
-                            <th scope="row">{{ $modulo->nombreMod }}</th>
-                            <td>{{ $profesor->nom_prof }}</td>
-                            <td>{{ $turno->descripcion }}</td>
-                            <td>{{ $frecuencia->detalle }}</td>
-                            <td>{{ $grupo->fecInicio }}</td>
-                            <td>{{ $grupo->fecFin }}</td>
+                            <th scope="row">{{ ucwords($modulo->nombreMod) }}</th>
+                            <td>{{ ucwords($profesor->nom_prof) }}</td>
+                            <td>{{ ucwords($turno->descripcion) }}</td>
+                            <td>{{ ucwords($frecuencia->detalle) }}</td>
+                            <td>{{ ucwords($grupo->fecInicio) }}</td>
+                            <td>{{ ucwords($grupo->fecFin) }}</td>
                             
                         </tr>
                    
                     </tbody>
                 </table>
-                
-                <div class="botones">
-                    <button type="button" class="btn boton-registrar btn-success col-xs-4">Generar PDF</button>
-                    <button type="button" class="btn boton-registrar btn-danger col-xs-4 " class="close" data-dismiss="modal" aria-label="Close">Cerrar</button>
-                </div> 
-                
-                <a href="{{ route('reporte.matricula',['dni'=>$alumno_composer->dni])}}" class="show-model btn bnt-info btn-sm" data-id="">Regresar</a>
+                <br>
+                <a href="{{ route('reporte.matricula',['dni'=>$alumno_composer->dni])}}" class="show-modal btn btn-info btn-sm">Regresar</a>
+                <br>
             </div>
 @endsection

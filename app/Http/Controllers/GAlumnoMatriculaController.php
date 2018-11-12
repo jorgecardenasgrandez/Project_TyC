@@ -26,14 +26,6 @@ class GAlumnoMatriculaController extends Controller
             ]);
     }
 
-    function generarPdfPerfil(){
-        //$pdf=App::make('dompdf.wrapper');
-        $pdf=PDF::loadView('alumno_informacion');
-        //$pdf->loadView('welcome');
-        return $pdf->stream();
-        //return "GENERANDO PDF";
-    }
-
     function reporteMatricula($dni){
         
         $alumno=Alumno::getAlumno($dni);
