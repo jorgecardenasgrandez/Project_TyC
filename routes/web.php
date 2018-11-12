@@ -99,27 +99,27 @@ Route::get('/mostrarDetalleMatricula/{idgrupo}','GAlumnoMatriculaController@most
 Route::get('/alumnoIndex','GAlumnoMatriculaController@index')->name('alumno.index');
 Route::get('/alumnoReporteMatricula/{dni}','GAlumnoMatriculaController@reporteMatricula')->name('reporte.matricula');
 Route::get('/probandoSidebar/{id}','GAlumnoMatriculaController@arreglarSidebar')->name('fix.sidebar');
-Route::get('/perfilPDF','GAlumnoMatriculaController@generarPdfPerfil')->name('perfil.pdf');
 Route::get('/informacion/{dni}','GAlumnoMatriculaController@perfil')->name('alumno.perfil');
 Route::get('/verReporteNotas/{dni}','GAlumnoMatriculaController@mostrarReporteNotas')->name('reporte.notas');
 
 Route::get('/probandoVistas',function(){
-    return view('alumno_reporte_notas');
+    return view('alumno_informacionPDF');
 });
 
-Route::get('/probandoPDF',function(){
-    //$pdf=PDF::loadHTML('<h1> Test </h1>');
-    $pdf=PDF::loadView('welcome'); // nos permite pasarle una vista
-    //return $pdf->stream(); //nos muestra el pdf en el navegador para descargarlo
-    return $pdf->download(); // nos descarga el pdf defrente
-});
+
+/**
+ *  PDF
+ */
+Route::get('/perfilPDF/{dni}','PdfController@perfilPDF')->name('perfil.pdf');
+Route::get('/matriculaPDF/{idgrupo}/{id}','PdfController@matriculaPDF')->name('matricula.pdf');
+
 
 View::composer(['master','category.index'],function($view){
 
 });
 /**
- * LOGIN
+ * LOGIN   
  */
 Route::get('/','UsuarioController@index')->name('login.index');
-Route::post('/home','UsuarioController@verificarUsuario');
+Route::post('/home','UsuarioController@verificarUsuario')->name('login');
 Route::get('/salir/{usuario}','UsuarioController@cerrarSesion');

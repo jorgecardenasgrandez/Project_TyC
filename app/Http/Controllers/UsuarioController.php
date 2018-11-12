@@ -32,8 +32,9 @@ class UsuarioController extends Controller
             if($usuario->esAdmin()){
                 return view('index');
             }else if($usuario->esAlumno()){
-                $alumno_verificado=Usuario::getDatosAlumno($usuario->usuario);
-                return view('alumno_index',['alumno_verificado'=>$alumno_verificado]);
+                if(!empty(Usuario::getDatosAlumno($usuario->usuario))){
+                    return view('alumno_index');
+                }
             }else{
                 return view('profesor_index');
             }
