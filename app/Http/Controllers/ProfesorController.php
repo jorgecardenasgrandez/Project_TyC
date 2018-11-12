@@ -181,7 +181,8 @@ class ProfesorController extends Controller
                                                   'apellido-paterno'=>$alumno->apePaterno,
                                                   'apellido-materno'=>$alumno->apeMaterno,
                                                   'nombres' =>$alumno->nombres,
-                                                  'fnacimiento' =>$alumno->fnacimiento
+                                                  'fnacimiento' =>$alumno->fnacimiento,
+                                                  'nro_matricula'=>$matricula->id
                                             );
             $fil++;
             
@@ -189,4 +190,5 @@ class ProfesorController extends Controller
         
         return view('profesor_alumnos_x_modulo', compact('alumnosdetalles','grupo'));
     }
+    
 }

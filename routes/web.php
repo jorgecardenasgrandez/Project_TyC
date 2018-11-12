@@ -39,6 +39,7 @@ Route::get('/cambiocontraseña','ProfesorController@cambiarContraseña' );
 Route::get('/alumnosXmodulo/{id_grupo}','ProfesorController@mostrarAlumnos_modulo' );
 
 
+
 /*  RUTAS PARA LA GESTION DE GRUPOS */
 Route::resource('grupo','GrupoController');
 Route::get('/obtenergrupos/{id}','GrupoController@listarGrupos');
