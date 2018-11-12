@@ -51,11 +51,12 @@
     <script src="//malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/js/custom.js"></script>
     <script src="/js/jquery-1.12.1.min.js"></script>
-  <!--  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
     <script src="/js/renderizar_select_grupo.js"></script>
     <script src="/js/renderizar_info_grupo.js"></script>
     <script src="/js/renderizar_info_profesor.js"></script>
-    <script src="/js/llenar_modal_nomina.js"></script>    
+    <script src="/js/llenar_modal_nomina.js"></script>
+    <script src="/js/registrar_nomina.js"></script>    
 
 </body>
 </html>

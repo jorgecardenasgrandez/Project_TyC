@@ -9,6 +9,7 @@ use App\Usuario;
 use App\Matricula;
 use App\Alumno;
 use App\Grupo;
+use App\Nomina;
 
 class ProfesorController extends Controller
 {
@@ -75,7 +76,7 @@ class ProfesorController extends Controller
                 'estado'=>'desconectado'
             ]
         );
-        return view('index');
+        return view('profesor_index');
         
     }
 
@@ -119,7 +120,7 @@ class ProfesorController extends Controller
         
         //return redirect()->route('profesor.index')->with('message','Registro actualizado satisfactoriamente');
  
-        return view('index');
+        return view('profesor_index');
     }
     
     public function edit_inicial()
@@ -177,18 +178,54 @@ class ProfesorController extends Controller
         foreach($matriculas as $matricula){
             
             $alumno = Alumno::find($matricula->estudiante_dni);
-            $alumnosdetalles[$fil] = array('nro' =>$alumno->dni,
+            $nomina = Nomina::where('matricula_id',$matricula->id)->first();
+            if($nomina == null){
+                $alumnosdetalles[$fil] = array('nro' =>$alumno->dni,
                                                   'apellido-paterno'=>$alumno->apePaterno,
                                                   'apellido-materno'=>$alumno->apeMaterno,
                                                   'nombres' =>$alumno->nombres,
                                                   'fnacimiento' =>$alumno->fnacimiento,
-                                                  'nro_matricula'=>$matricula->id
+                                                  'nro_matricula'=>$matricula->id,
+                                                  'nota3' => "-"
                                             );
-            $fil++;
+                $fil++;
+            }else{
+                $alumnosdetalles[$fil] = array('nro' =>$alumno->dni,
+                                                  'apellido-paterno'=>$alumno->apePaterno,
+                                                  'apellido-materno'=>$alumno->apeMaterno,
+                                                  'nombres' =>$alumno->nombres,
+                                                  'fnacimiento' =>$alumno->fnacimiento,
+                                                  'nro_matricula'=>$matricula->id,
+                                                  'nota3' => $nomina->nota3
+                                            );
+                $fil++;
+            }
+            
             
         }
         
         return view('profesor_alumnos_x_modulo', compact('alumnosdetalles','grupo'));
     }
     
+    public function registrar_nomina(Request $request){
+        if($request->ajax()){
+            
+            $id_matricula = explode(" ",$request->myModalLabel);
+            $nota1 = (integer)$request->nota1;
+            $nota2 = (integer)$request->nota2;
+            $nota3 = ($nota1 + $nota2)/2;
+
+            Nomina::create(
+                [
+                    'nota1'=>$nota1,
+                    'nota2'=>$nota2,
+                    'nota3'=>$nota3,
+                    'observacion'=>$request->observaciones,
+                    'matricula_id'=>(integer)$id_matricula
+                ]
+            );           
+        }
+        
+        
+    }
 }
