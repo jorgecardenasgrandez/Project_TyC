@@ -77,7 +77,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="profesor/create">Agregar</a>
+                                        <a href="/profesor/create">Agregar</a>
                                     </li>
                                     <li>
                                         <a href="">Buscar</a>
@@ -208,7 +208,7 @@
                         </li>
                         <li>
                             
-                                <a href="/salir/$user->usuario">
+                                <a href="/salir/{{$user->usuario}}">
                                 <i class="fa fa-ban"></i>
                                 <span>Cerrar sesion</span>
                             </a>

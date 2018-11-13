@@ -221,7 +221,7 @@ class ProfesorController extends Controller
                     'nota2'=>$nota2,
                     'nota3'=>$nota3,
                     'observacion'=>$request->observaciones,
-                    'matricula_id'=>(integer)$id_matricula
+                    'matricula_id'=>(integer)$id_matricula[1]
                 ]
             );           
         }
