@@ -5,7 +5,7 @@
 
     <div class="contenido-main">
                 <div class="titulo-formulario">
-                    <h2>Ver <span>Modulos</span></h2>
+                    <h2>Ver <span>Grupos</span></h2>
                 </div>
 
                 <table class="table">
