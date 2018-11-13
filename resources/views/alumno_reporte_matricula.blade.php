@@ -17,6 +17,7 @@
                     <th scope="col" width="15%">Monto</th>
                     <th scope="col" width="15%">Grupo</th>
                     <th scope="col" width="10%">Detalle</th>
+                    <th scope="col" width="10%">Descarga</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +32,6 @@
                                 
                                 <!--<td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#show">Ver</button></td>-->
                         <td><a href="{{ route('matricula.detalle',['idgrupo'=>$mtc->grupo_id]) }}" class="show-modal btn btn-info btn-sm" >Ver</a>
-                            <i class="fa fa-eye"></i> 
                         </td>
                         <td><a href="{{ route('matricula.pdf',['idgrupo'=>$mtc->grupo_id,'id'=>$mtc->id]) }}" class="show-modal btn btn-info btn-sm" >Descargar</a>
                         </td>

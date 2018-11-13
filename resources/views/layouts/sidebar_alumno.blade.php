@@ -68,7 +68,7 @@
                                 <a href="{{ route('reporte.matricula',['dni'=>$alumno_composer->dni]) }}">Reporte de Matrícula</a>
                             </li>
                             <li>
-                                <a href="{{ route('reporte.notas',['dni'=>$alumno_composer->dni]) }}">Reporte de Evaluaciones</a>
+                                <a href="{{ route('reporte.evaluaciones',['dni'=>$alumno_composer->dni]) }}">Reporte de Evaluaciones</a>
                             </li>
                         </ul>
                     </div>
