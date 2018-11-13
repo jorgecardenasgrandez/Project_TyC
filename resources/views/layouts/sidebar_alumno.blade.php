@@ -14,7 +14,7 @@
 
         <div class="sidebar-header">
             <div class="user-pic">
-                <img class="img-responsive img-rounded" src="img/user.jpg" alt="User picture">
+                <img class="img-responsive img-rounded" src="/img/user.jpg" alt="User picture">
             </div>
             <div class="user-info">
                 <span class="user-name">
@@ -73,7 +73,12 @@
                         </ul>
                     </div>
                 </li>
-
+                <li>
+                    <a href="/salir/{{$alumno_composer->correo}}">
+                            <i class="fa fa-ban"></i>
+                            <span>Cerrar sesion</span>
+                    </a>
+                </li>
             </ul>
         </div>
         <!-- sidebar-menu  -->

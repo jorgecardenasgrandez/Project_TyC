@@ -12,33 +12,33 @@
  
                     <div class="form-group">
                         <label class="titulo-label">Nombres</label>
-                        <input type="text" class="form-control" id="nombres" name="nombres" readonly="">
+                        <input type="text" class="form-control" id="nombres" name="nombres" value="{{$user->nom_prof}}" readonly="">
                     </div>
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label class="titulo-label">Apellido Paterno</label>
-                            <input type="text" class="form-control" id="apellido-paterno" name="apellido-paterno"  readonly="">
+                            <input type="text" class="form-control" id="apellido-paterno" name="apellido-paterno" value="{{$user->apePaterno_prof}}" readonly>
                         </div>
                         <div class="form-group col-md-6">
                             <label class="titulo-label">Apellido Materno</label>
-                            <input type="text" class="form-control" id="apellido-materno" name="apellido-materno"  readonly>
+                            <input type="text" class="form-control" id="apellido-materno" name="apellido-materno"  value="{{$user->apeMaterno_prof}}" readonly>
                         </div>
                     </div>
 
                     
                     <div class="form-group">
                         <label class="titulo-label">Sexo</label>                            
-                        <input type="text" class="form-control" id="sexo" name="sexo" readonly>
+                        <input type="text" class="form-control" id="sexo" name="sexo" value="{{$user->sexo_prof}}" readonly>
                     </div>
 
                     <div class="form-group">
                         <label class="titulo-label">Fecha de nacimiento</label>
-                        <input type="text" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento" readonly>
+                        <input type="text" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento" value="{{$user->fechaNac_prof}}" readonly>
                     </div>
 
                     <div class="botones">
-                        <button type="submit" class="btn boton-limpiar btn-success col-xs-4">Exportar a PDF</button>
+                        <button type="submit" class="btn boton-limpiar btn-success col-xs-4">Regresar</button>
                     </div>
 
                 </form>

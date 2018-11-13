@@ -38,6 +38,7 @@ Route::get('/ingresanotas','ProfesorController@ingresarNotas' );
 Route::get('/cambiocontraseña','ProfesorController@cambiarContraseña' );
 Route::get('/alumnosXmodulo/{id_grupo}','ProfesorController@mostrarAlumnos_modulo' );
 Route::post('/registrarnomina','ProfesorController@registrar_nomina' );
+Route::get('/listarProfesores','ProfesorController@lista_profesores' );
 
 
 

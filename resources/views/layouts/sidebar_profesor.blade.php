@@ -64,12 +64,6 @@
                             </a>
                         </li>
                         <li>
-                            <a href="\ingresanotas">
-                                <i class="fa fa-folder"></i>
-                                <span>Ingresar notas</span>
-                            </a>
-                        </li>
-                        <li>
                             <a href="/salir/{{$user->correo}}">
                                 <i class="fa fa-ban"></i>
                                 <span>Cerrar sesion</span>

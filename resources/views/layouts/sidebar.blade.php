@@ -89,7 +89,7 @@
                                         <a href="">Eliminar</a>
                                     </li>
                                     <li>
-                                        <a href="">Ver Todo</a>
+                                        <a href="/listarProfesores">Ver Todo</a>
                                     </li>
                                 </ul>
                             </div>

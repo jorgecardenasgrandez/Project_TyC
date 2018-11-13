@@ -153,6 +153,16 @@ class ProfesorController extends Controller
         //
     }
     
+    public function lista_profesores()
+    {
+        $profesores= Profesor::all();
+        return view('administrador_listar_profesores',compact('profesores'));
+    }
+    
+    
+    
+// METODOS PARA PERFIL PROFESOR *******************************************
+    
     public function verPerfil(){
         return view('profesor_informacion');
     }
@@ -225,7 +235,6 @@ class ProfesorController extends Controller
                 ]
             );           
         }
-        
         
     }
 }

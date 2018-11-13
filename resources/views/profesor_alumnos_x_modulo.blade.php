@@ -11,12 +11,12 @@
                 <table class="table">
                     <thead class="bg-primary">
                         <tr>
-                            <th scope="col" width="20%">Nro. Orden</th>
+                            <th scope="col" width="20%">Nro. DNI</th>
                             <th scope="col" width="20%">Ape. Paterno</th>
                             <th scope="col" width="20%">Ape. Materno</th>
                             <th scope="col" width="20%">Nombres</th>
                             <th scope="col" width="20%">F. Nacimiento</th>
-                            <th scope="col" width="20%">Notas</th>
+                            <th scope="col" width="20%">Nota Final</th>
                             <th scope="col" width="20%">Notas</th>
                         </tr>
                     </thead>
@@ -30,7 +30,12 @@
                                 <td>{{$alu['nombres']}}</td>
                                 <td>{{$alu['fnacimiento']}}</td>
                                 <td>{{$alu['nota3']}}</td>
-                                <td><a class="btn btn-warning" data-toggle="modal" data-target="#miModal" onClick="setNomina('{{$alu['nro']}}','{{$alu['nombres']}}','{{$alu['apellido-paterno']}}','{{$alu['apellido-materno']}}','{{$alu['nro_matricula']}}');">Agregar</a></td>
+                                @if($alu['nota3']=="-")
+                                    <td><button class="btn btn-warning" data-toggle="modal" data-target="#miModal" onClick="setNomina('{{$alu['nro']}}','{{$alu['nombres']}}','{{$alu['apellido-paterno']}}','{{$alu['apellido-materno']}}','{{$alu['nro_matricula']}}');" >Agregar</button></td>
+                                @else
+                                    <td><button class="btn btn-warning" data-toggle="modal" data-target="#miModal" onClick="setNomina('{{$alu['nro']}}','{{$alu['nombres']}}','{{$alu['apellido-paterno']}}','{{$alu['apellido-materno']}}','{{$alu['nro_matricula']}}');" disabled>Agregar</button></td>
+                                @endif
+                                
                             </tr>
                         
                         @endforeach
