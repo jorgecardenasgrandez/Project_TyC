@@ -192,10 +192,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="/consultarMatriculados">Reporte de alumnos matriculados</a>
-                                    </li>
-                                    <li>
-                                        <a href="{{ route('reporte.alumnos')}}">Reporte de alumnos matriculados (JORGE)</a>
+                                        <a href="{{ route('reporte.alumnos')}}">Reporte de alumnos matriculados</a>
                                     </li>
                                     <li>
                                         <a href="">Reporte de ...</a>

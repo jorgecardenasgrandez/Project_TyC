@@ -56,7 +56,6 @@ Route::get('/consultarMatriculados',function(){
 });
 
 Route::get('/reportes/alumnos','MatriculaController@mostrarMatriculados')->name('reporte.alumnos');
-Route::get('/reporte/{idGrupo}','MatriculaController@mostrarDetalleReporteMatricula')->name('reporte.detalle_grupo');
 
 Route::get('/visualizarMatricula','MatriculaController@visualizarMatricula');
 /*  RUTAS PARA LA GESTION DE ALUMNOS */
@@ -101,10 +100,6 @@ Route::get('/alumnoReporteMatricula/{dni}','GAlumnoMatriculaController@reporteMa
 Route::get('/informacion/{dni}','GAlumnoMatriculaController@perfil')->name('alumno.perfil');
 Route::get('/verReporteNotas/{id}','GAlumnoMatriculaController@mostrarReporteNotas')->name('reporte.nomina');
 Route::get('/reporteEvaluaciones/{dni}','GAlumnoMatriculaController@reporteEvaluaciones')->name('reporte.evaluaciones');
-Route::get('/probandoVistas',function(){
-    return view('alumno_informacionPDF');
-});
-
 
 /**
  *  PDF

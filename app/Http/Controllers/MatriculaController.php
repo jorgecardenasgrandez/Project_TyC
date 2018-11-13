@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use App\Modulo;
 use App\Matricula;
 use App\Frecuencia;
 use App\Turno;
 use App\Alumno;
+use App\Profesor;
+use App\Grupo;
 
 
 class MatriculaController extends Controller
@@ -126,27 +128,27 @@ class MatriculaController extends Controller
          */
         $matriculas=Matricula::all();
 
-        return view('alumnos_matriculados',['matriculas'=>$matriculas]);
+        $new_alumno=collect(new Alumno);
+        $new_modulo=collect(new Modulo);
+        $new_profesor=collect(new Profesor);
+        $new_turno=collect(new Turno);
+
+        foreach($matriculas as $matricula){
+            $alumno=$matricula->alumno;
+            $new_alumno->push($alumno);
+
+            $grupo=Grupo::find($matricula->grupo_id);
+            $modulo=$grupo->modulo;
+            $new_modulo->push($modulo);
+
+            $profesor=$grupo->profesor;
+            $new_profesor->push($profesor);
+
+            $turno=$grupo->turno;
+            $new_turno->push($turno);
+        }
+
+        return view('alumnos_matriculados',compact('matriculas','new_alumno','new_modulo','new_profesor','new_turno'));
     }
 
-    function mostrarDetalleReporteMatricula($idGrupo){
-        $grupo=Grupo::find($idgrupo);
-        $modulo=$grupo->modulo;
-
-        $grupo=Grupo::find($idgrupo);
-        $profesor=$grupo->profesor;
-
-        $grupo=Grupo::find($idgrupo);
-        $turno=$grupo->turno;
-
-        $grupo=Grupo::find($idgrupo);
-        $frecuencia=$grupo->frecuencia;
-
-        return view('VISTA_NO_CREADA_TODAVIA',[
-            'modulo'=>$modulo,
-            'profesor'=>$profesor,
-            'turno'=>$turno,
-            'frecuencia'=>$frecuencia
-        ]);
-    }
 }
