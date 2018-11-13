@@ -54,7 +54,7 @@
   <!--  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
     <script src="/js/renderizar_select_grupo.js"></script>
     <script src="/js/renderizar_info_grupo.js"></script>
-       <script src="/js/renderizar_info_profesor.js"></script>
+    <script src="/js/renderizar_info_profesor.js"></script>
         
 
 </body>

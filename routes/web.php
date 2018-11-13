@@ -17,7 +17,7 @@ use App\Usuario;
 });*/
 
 Route::get('/prueba', function () {
-    return view('vistas3.admnistrador_alumno_buscar');
+    return view('vistas3.administrador_modulos_todos');
 });
 
 /*          RUTAS PARA LA GESTION DE PROFESOR
