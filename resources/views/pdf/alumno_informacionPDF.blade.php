@@ -1,133 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 	<meta charset="UTF-8">
-	<title> PDF Alumno </title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Documento PDF</title>
+    <style type="text/css">
 
-	<style>
-		body
-		{
-			background: gray;
-		}
+        main{
+            width: 595px;
+            height: 842px;
+            border: 3px solid black;
+            margin: auto;
+            padding: 5px 0;
+        }
 
+        .borde
+        {
+            border: 1px solid black;
+            border-radius: 8px;
+        }
 
-		.Hoja
-		{
-			width: 595px;
-			height: 842px;
-			border: 3px solid black;
-			margin: auto;
-			background: white;
-		}
+        .Entrada
+        {
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-		header
-		{
-			width: 595px;
-			height: 100px;
-		}
+        .titulo-principal{
+            width: 100%;
+            margin: 20px 0px 0px 0px;
+        }
 
-		#Logo
-		{
-			width: 120px;
-			height: 80px;
-			position: relative;
-			margin: -120px 470px;
-			background: url(../img/cetpro.png);
-			background-size: contain;
-			background-repeat: no-repeat;
-			filter: grayscale(100%);
-		}
+        .titulo-principal h4{
+            font-size: 20px;
+            width: 85%;
+            margin: 0px auto;
+        }
 
-		#Encabezado1
-		{
-			width: 475px;
-			height: 80px; 
-			position: relative;
-			margin: 30px auto;
-			font-family: sans-serif;
-			font-size: 30px;
-			font-weight: bolder;
-		}
+        .titulo-año{
+            width: 100%;
+        }
 
-		img
-		{
-			width: 200px;
-			height: 120px;
-			filter: grayscale(100%);
-		}
+        .titulo-año h4{
+            font-size: 16px;
+            width: 55%;
+            margin: 0px auto;
+        }
 
-		#Encabezado
-		{
-			text-align: center;
-			line-height: auto;
-		}
+        .titulo-formulario{
+            width: 40%;
+            margin: 0px auto;
+        }
 
-		.borde
-		{
-			border: 2px solid black;
-			border-radius: 15px;
-		}
+        .titulo-formulario h2{
+            font-size: 25px;
+        }
 
-		.Entrada
-		{
-			font-size: 20px;
-			font-weight: bold;
-		}
-
-	</style>
+    </style>
 
 </head>
+
 <body>
-	<div class ="Hoja">
-	    <header>
-	    	<div id="Encabezado1">CENTRO DE PRODUCCIÓN TÉCNICA JOSÉ GALVEZ</div>
-	    	<div id="Logo"></div>
-	    </header>
 
-	    <div>
-	        <div id="Encabezado">
-	            <h2>Información Personal</h2>
-	        </div>
+        <main>
 
-	        <form>
-	            <fieldset class="borde">
-	                <legend class="Entrada">Datos personales</legend>
-	                <div>
-	                    <div><label>Nombres &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;:                </label><label> {{ucwords($alumno->nombres)}} </label></div>
-	                    <div><label>Apellido Paterno &emsp;&emsp;:                               </label><label> {{ucwords($alumno->apePaterno)}}</label></div>
-	                    <div><label>Apellido Materno &emsp;&nbsp;&nbsp;&nbsp;:                   </label><label> {{ucwords($alumno->apeMaterno)}}</label></div>
-	                    <div><label>Fecha de nacimiento&nbsp;&nbsp;&nbsp;:                       </label><label> {{$alumno->fnacimiento}}  </label></div>
-	                    <div><label>Sexo &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;&nbsp;: </label><label> {{$alumno->sexo}}   </label></div>
-	                </div>
-	            </fieldset>
-	            <br>
-	            <br>
+            <div class="titulo-principal">
+                <h4>CENTRO DE PRODUCCIÓN TÉCNICA JOSÉ GALVEZ</h4>
+            </div>
+
+            <div class="titulo-año">
+                <center><h4>“Año del Diálogo y la Reconciliación Nacional”</h4></center>
+            </div>
+
+            <br><br>
+
+            <div class="titulo-formulario">
+                <h2>Información <span>Personal</span></h2>
+            </div>
+
+            <div class="contenido-main">
 
 
-	            <fieldset class="borde">
-	                <legend class="Entrada"> Datos Adicionales y de contacto</legend>
-	                <div>
-	                <div><label>Estado Civil &emsp;&emsp;&emsp;&emsp;:                           </label><label> {{ucwords($alumno->ecivil)}}   </label></div>
-	                <div><label>Grado de Instrucción &nbsp;&nbsp;:                               </label><label> {{ucwords($alumno->gradoInstruccion)}}     </label></div>
-	                <div><label>Ocupación &emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;:                  </label><label> {{ucwords($alumno->ocupacion)}} </label></div>           
-	                <div><label>Celular &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;:                    </label><label> {{$alumno->telefono}}   </label></div>
-	                <div><label>Correo electrónico &emsp;&nbsp;&nbsp;:                           </label><label> {{$alumno->correo}}    </label></div>
-	            </div>
-	            </fieldset>
-	            <br>
-	            <br>
-	            
-	            <fieldset class="borde">
-	                <legend class="Entrada">Dirección</legend>
-	                <div><label>Domicilio &emsp;&emsp;&emsp;&emsp;:                              </label><label> {{ucwords($alumno->domicilio)}}    </label></div>
-	                <div><label>Distrito &emsp;&emsp;&emsp;&emsp;&emsp;:                         </label><label> {{ucwords($distrito->nombre)}}     </label></div>
-	                <div><label>Provincia &emsp;&emsp;&emsp;&emsp;&nbsp;:                        </label><label> {{ucwords($provincia->nombre)}}    </label></div>
-	                <div><label>Departamento &emsp;&emsp;&nbsp;&nbsp;:                           </label><label> {{ucwords($departamento->nombre)}} </label></div>
-	                </div>
-	            </fieldset>
-	        </form>
-	    </div>
-	</div>
+                <fieldset class="borde">
+                    <legend class="Entrada">Datos personales</legend>
+                    <div>
+                        <div><label>Nombres &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><label> {{ucwords($alumno->nombres)}} </label></div>
+                        <div><label>Apellido Paterno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><label> {{ucwords($alumno->apePaterno)}}</label></div>
+                        <div><label>Apellido Materno &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><label> {{ucwords($alumno->apeMaterno)}}</label></div>
+                        <div><label>Fecha de nacimiento&nbsp;&nbsp;&nbsp;:</label><label> {{$alumno->fnacimiento}}  </label></div>
+                        <div><label>Sexo &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label><label> {{ucwords($alumno->sexo)}}  </label></div>
+                    </div>
+                </fieldset>
+                
+                <br><br>
+
+                <fieldset class="borde">
+                    <legend class="Entrada"> Datos Adicionales y de contacto</legend>
+                    <div>
+                    <div><label>Estado Civil &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:<label><label> {{ucwords($alumno->ecivil)}}    </label></div>
+                    <div><label>Grado de Instrucción &nbsp;&nbsp;:                               </label><label> {{ucwords($alumno->gradoInstruccion)}}     </label></div>
+                    <div><label>Ocupación &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><label> {{ucwords($alumno->ocupacion)}} </label></div>           
+                    <div><label>Celular &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><label> {{$alumno->telefono}}    </label></div>
+                    <div><label>Correo electrónico &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><label> {{$alumno->correo}}     </label></div>
+                </div>
+                </fieldset>
+
+                <br><br>
+
+                <fieldset class="borde">
+                    <legend class="Entrada">Dirección</legend>
+                    <div><label>Domicilio &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><label> {{ucwords($alumno->domicilio)}}    </label></div>
+                    <div><label>Distrito &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  </label><label> {{ucwords($distrito->nombre)}}    </label></div>
+                    <div><label>Provincia &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: </label><label> {{ucwords($provincia->nombre)}}  </label></div>
+                    <div><label>Departamento &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label><label> {{ucwords($departamento->nombre)}} </label></div>
+                    </div>
+                </fieldset>
+            </div>
+        </main>
+        <!-- page-content" -->
 
 </body>
+
 </html>
+
