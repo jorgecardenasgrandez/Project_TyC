@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-//use App\Http\Controllers\PDF;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use App\Matricula;
 use App\Alumno;
 use App\Grupo;
+use App\Modulo;
+use App\Profesor;
+use App\Turno;
+use App\Frecuencia;
 class GAlumnoMatriculaController extends Controller
 {
     function index(){
@@ -36,11 +40,6 @@ class GAlumnoMatriculaController extends Controller
         ]);
     }
 
-    function arreglarSidebar($id){
-
-        return view('probando_sidebar',compact('id'));
-    }
-
     function mostrarDetalleMatricula($idgrupo){
         $grupo=Grupo::find($idgrupo);
         $modulo=$grupo->modulo;
@@ -63,9 +62,39 @@ class GAlumnoMatriculaController extends Controller
         ]);
     }
 
-    function mostrarReporteNotas($dni){
-        $matricula=Matricula::where('dni',compact('dni'))->first();
+    function reporteEvaluaciones($dni){
+      
+        $matriculas=Matricula::obtenerMatriculas($dni);
+       
+        $new_modulo=collect(new Modulo);
+        $new_profesor=collect(new Profesor);
+        $new_turno=collect(new Turno);
+        $new_frecuencia=collect(new Frecuencia);
+
+        foreach($matriculas as $matricula){
+            $grupo=Grupo::find($matricula->grupo_id);
+            $modulo=$grupo->modulo;
+            $new_modulo->push($modulo);
         
-        return 'Mostrando reporte notas';
+            $profesor=$grupo->profesor;
+            $new_profesor->push($profesor);
+
+            $turno=$grupo->turno;
+            $new_turno->push($turno);
+
+            $frecuencia=$grupo->frecuencia;
+            $new_frecuencia->push($frecuencia);
+        }
+        
+        return view('alumno_reporte_evaluaciones',compact('matriculas','new_modulo','new_profesor','new_turno','new_frecuencia'));
+
+    }
+
+    function mostrarReporteNotas($id){
+
+        $matricula=Matricula::find($id);
+        $nomina=$matricula->nomina;
+        
+        return view('alumno_reporte_notas',compact('nomina','matricula'));
     }
 }

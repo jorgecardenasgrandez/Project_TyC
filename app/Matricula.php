@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Alumno;
 use App\Grupo;
+use App\Nomina;
 
 class Matricula extends Model
 {
@@ -23,5 +24,12 @@ class Matricula extends Model
 
     function grupo(){
         return $this->belongsTo(Grupo::class);
+    }
+
+    static function obtenerMatriculas($dni){
+        return Matricula::where('estudiante_dni',compact('dni'))->get();
+    }
+    function nomina(){
+        return $this->hasOne(Nomina::class);
     }
 }
