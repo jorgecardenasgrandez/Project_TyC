@@ -169,6 +169,20 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="sidebar-dropdown">
+                            <a>
+                                <i class="fa fa-book"></i>
+                                <span>Periodo Academico</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="{{route('periodo.index')}}">Consultar</a>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </li>
                         <li class="header-menu">
                             <span>Operaciones</span>
                         </li>

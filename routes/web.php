@@ -20,6 +20,10 @@ Route::get('/prueba', function () {
     return view('vistas3.administrador_modulos_todos');
 });
 
+// *********** GESTION DE PERIODOS ACADEMICOS ******************************* //
+Route::resource('periodo','PeriodoController');
+
+
 /*          RUTAS PARA LA GESTION DE PROFESOR
 Route::get('/registrar_profesor', 'ProfesorController@registrar');
 Route::get('/modificar_profesor', 'ProfesorController@modificar');
