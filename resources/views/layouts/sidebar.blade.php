@@ -36,7 +36,7 @@
                             <span>Administración</span>
                         </li>
                         <li>
-                            <a href="\">
+                            <a href="#">
                                 <i class="fa fa-folder"></i>
                                 <span>Inicio</span>
                             </a>
@@ -208,10 +208,10 @@
                         </li>
                         <li>
                             
-                                <a href="/salir/{{$user->usuario}}">
-                                <i class="fa fa-ban"></i>
-                                <span>Cerrar sesion</span>
-                            </a>
+                                <a href="{{ route('logout') }}">
+                                        <i class="fa fa-ban"> </i>
+                                        <span>Cerrar sesion</span>
+                                    </a>
                         </li>
 
                     </ul>
