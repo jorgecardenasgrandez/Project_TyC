@@ -17,8 +17,8 @@
                         <img class="img-responsive img-rounded" src="/img/user.jpg" alt="User picture">
                     </div>
                     <div class="user-info">
-                        <span class="user-name">{{ $user->nom_prof}}
-                            {{ $user->apePaterno_prof }}
+                        <span class="user-name">{{ ucwords($user->nom_prof)}}
+                            {{ ucwords($user->apePaterno_prof) }}
                         </span>
                         <span class="user-role">Profesor</span>
                         <span class="user-status">
@@ -64,10 +64,10 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/salir/{{$user->correo}}">
-                                <i class="fa fa-ban"></i>
-                                <span>Cerrar sesion</span>
-                            </a>
+                                <a href="{{ route('logout') }}">
+                                        <i class="fa fa-ban"> </i>
+                                        <span>Cerrar sesion</span>
+                                </a>
                         </li>
 
                     </ul>
