@@ -19,6 +19,9 @@ use App\Usuario;
 Route::get('/prueba', function () {
     return view('vistas3.administrador_modulos_todos');
 });
+Route::get('/homeadmin',function(){
+    return view('index');
+} );
 
 // *********** GESTION DE PERIODOS ACADEMICOS ******************************* //
 Route::resource('periodo','PeriodoController');

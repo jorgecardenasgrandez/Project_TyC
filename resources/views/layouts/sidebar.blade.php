@@ -36,7 +36,7 @@
                             <span>Administración</span>
                         </li>
                         <li>
-                            <a href="\">
+                            <a href="\homeadmin">
                                 <i class="fa fa-folder"></i>
                                 <span>Inicio</span>
                             </a>

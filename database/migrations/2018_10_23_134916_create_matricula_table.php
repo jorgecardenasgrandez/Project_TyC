@@ -26,6 +26,9 @@ class CreateMatriculaTable extends Migration
             $table->integer('grupo_id')->unsigned();
             $table->foreign('grupo_id')->references('id')->on('grupos')->onDelete('cascade');
             
+            $table->integer('periodo_id')->unsigned();
+            $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }
