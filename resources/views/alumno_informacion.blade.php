@@ -6,8 +6,8 @@
                 <div class="titulo-formulario">
                     <h2>Información <span>Personal</span></h2>
                 </div>
-
-                <form action=" {{ route('perfil.pdf',['dni'=>$alumno_composer->dni])}}" method='GET'>
+                    {{-- ,['dni'=>$alumno_composer->dni]--}}
+                <form action=" {{ route('perfil.pdf')}}" method='GET'>
                 
                     <fieldset>
                         <legend>Datos personales</legend>

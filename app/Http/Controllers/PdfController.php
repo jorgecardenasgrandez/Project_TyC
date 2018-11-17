@@ -6,12 +6,18 @@ use Illuminate\Http\Request;
 use App\Alumno;
 use App\Matricula;
 use App\Grupo;
-
+use Auth;
 class PdfController extends Controller
 {
-    function perfilPDF($dni){
-        
-        $alumno=Alumno::getAlumno($dni);
+
+    function __construct(){
+        $this->middleware('auth');                                 
+    }
+
+    function perfilPDF(){
+
+        $correo=Auth::user()->email;        
+        $alumno=Alumno::getAlumno($correo);
         $distrito=$alumno->distrito;
         $provincia=$distrito->provincia;
         $departamento=$provincia->departamento;

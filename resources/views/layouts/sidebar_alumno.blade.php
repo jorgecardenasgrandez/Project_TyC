@@ -18,7 +18,7 @@
             </div>
             <div class="user-info">
                 <span class="user-name">
-                <strong>{{ ucwords($alumno_composer->nombres)}}</strong>
+                <strong>{{ ucwords(auth()->user()->name)}}</strong>
                 </span>
                 <span class="user-role">Alumno</span>
                 <span class="user-status">
@@ -42,7 +42,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('alumno.perfil',['dni'=>$alumno_composer->dni]) }}">
+                    
+                    <a href="{{ route('alumno.perfil') }}">
                         <i class="fa fa-folder"></i>
                         <span>Mi información</span>
                     </a>
@@ -65,18 +66,18 @@
                     <div class="sidebar-submenu">
                         <ul>
                             <li>
-                                <a href="{{ route('reporte.matricula',['dni'=>$alumno_composer->dni]) }}">Reporte de Matrícula</a>
+                                <a href="{{ route('reporte.matricula') }}">Reporte de Matrícula</a>
                             </li>
                             <li>
-                                <a href="{{ route('reporte.evaluaciones',['dni'=>$alumno_composer->dni]) }}">Reporte de Evaluaciones</a>
+                                <a href="{{ route('reporte.evaluaciones') }}">Reporte de Evaluaciones</a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li>
-                    <a href="/salir/{{$alumno_composer->correo}}">
-                            <i class="fa fa-ban"></i>
-                            <span>Cerrar sesion</span>
+                <a href="{{ route('logout') }}">
+                        <i class="fa fa-ban"> </i>
+                        <span>Cerrar sesion</span>
                     </a>
                 </li>
             </ul>

@@ -40,6 +40,7 @@ Route::get('/alumnosXmodulo/{id_grupo}','ProfesorController@mostrarAlumnos_modul
 Route::post('/registrarnomina','ProfesorController@registrar_nomina' );
 Route::get('/listarProfesores','ProfesorController@lista_profesores' );
 
+Route::get('/profesor_inicio','ProfesorController@index')->name('profesor.index');
 
 
 /*  RUTAS PARA LA GESTION DE GRUPOS */
@@ -61,6 +62,7 @@ Route::get('/reportes/alumnos','MatriculaController@mostrarMatriculados')->name(
 Route::get('/visualizarMatricula','MatriculaController@visualizarMatricula');
 /*  RUTAS PARA LA GESTION DE ALUMNOS */
 Route::resource('alumno','AlumnoController');
+Route::get('/administrador_inicio','AlumnoController@index')->name('admi.index');
 
 /**
  *  DISTINAS RUTAS PARA LA GESTION DEL MODULO
@@ -97,24 +99,26 @@ Route::post('/RegistroOpcionOcupacional','OpcionocupacionalController@registroOp
 
 Route::get('/mostrarDetalleMatricula/{idgrupo}','GAlumnoMatriculaController@mostrarDetalleMatricula')->name('matricula.detalle');
 Route::get('/alumnoIndex','GAlumnoMatriculaController@index')->name('alumno.index');
-Route::get('/alumnoReporteMatricula/{dni}','GAlumnoMatriculaController@reporteMatricula')->name('reporte.matricula');
-Route::get('/informacion/{dni}','GAlumnoMatriculaController@perfil')->name('alumno.perfil');
+Route::get('/alumnoReporteMatricula','GAlumnoMatriculaController@reporteMatricula')->name('reporte.matricula');
+Route::get('/informacion','GAlumnoMatriculaController@perfil')->name('alumno.perfil');
 Route::get('/verReporteNotas/{id}','GAlumnoMatriculaController@mostrarReporteNotas')->name('reporte.nomina');
-Route::get('/reporteEvaluaciones/{dni}','GAlumnoMatriculaController@reporteEvaluaciones')->name('reporte.evaluaciones');
+Route::get('/reporteEvaluaciones','GAlumnoMatriculaController@reporteEvaluaciones')->name('reporte.evaluaciones');
 
 /**
  *  PDF
  */
-Route::get('/perfilPDF/{dni}','PdfController@perfilPDF')->name('perfil.pdf');
+Route::get('/perfilPDF','PdfController@perfilPDF')->name('perfil.pdf');
 Route::get('/matriculaPDF/{idgrupo}/{id}','PdfController@matriculaPDF')->name('matricula.pdf');
 
 
-View::composer(['master','category.index'],function($view){
-
-});
 /**
  * LOGIN   
  */
-Route::get('/','UsuarioController@index')->name('login.index');
-Route::post('/home','UsuarioController@verificarUsuario')->name('login');
-Route::get('/salir/{usuario}','UsuarioController@cerrarSesion');
+
+Route::get('/','Auth\LoginController@showLoginForm');
+Route::post('login','Auth\LoginController@login')->name('login');
+Route::get('logout','Auth\LoginController@logout')->name('logout');
+
+//Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

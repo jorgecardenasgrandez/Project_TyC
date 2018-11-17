@@ -26,7 +26,9 @@ class Matricula extends Model
         return $this->belongsTo(Grupo::class);
     }
 
-    static function obtenerMatriculas($dni){
+    static function obtenerMatriculas($correo){
+        $alumno=Alumno::where('correo',compact('correo'))->first();
+        $dni=$alumno->dni;
         return Matricula::where('estudiante_dni',compact('dni'))->get();
     }
     function nomina(){
