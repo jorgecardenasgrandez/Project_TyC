@@ -9,6 +9,10 @@ use App\Http\Requests\OpcionOcupacionalRequest;
 
 class OpcionocupacionalController extends Controller
 {
+    function __construct(){
+        $this->middleware('auth');                          
+    }
+
     function showRegistroOpcionOcup(){
         $lsfamiliasProfesionales=Familiaprofesional::all();
         return view('opcion_registrar',['FamiliasProf'=>$lsfamiliasProfesionales]);

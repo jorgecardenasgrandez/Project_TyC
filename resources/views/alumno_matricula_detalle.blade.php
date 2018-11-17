@@ -33,7 +33,7 @@
                     </tbody>
                 </table>
                 <br>
-                <a href="{{ route('reporte.matricula',['dni'=>$alumno_composer->dni])}}" class="show-modal btn btn-info btn-sm">Regresar</a>
+                <a href="{{ route('reporte.matricula')}}" class="show-modal btn btn-info btn-sm">Regresar</a>
                 <br>
             </div>
 @endsection

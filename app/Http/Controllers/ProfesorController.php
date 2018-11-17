@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Profesor;
 use App\Distrito;
-use App\Usuario;
+use App\User;
 use App\Matricula;
 use App\Alumno;
 use App\Grupo;
 use App\Nomina;
-
+use Auth;
 class ProfesorController extends Controller
 {
+    function __construct(){
+        $this->middleware('auth');                                    
+    }
     /**
      * Display a listing of the resource.
      *
@@ -68,12 +71,12 @@ class ProfesorController extends Controller
                 'correo' => request('correo')
         ]);
         
-        Usuario::create(
+        User::create(
             [
-                'usuario'=>request('correo'),
-                'password'=>request('dni'),
-                'usuario_type'=>'profesor',
-                'estado'=>'desconectado'
+                'name'=>request('nombres'),
+                'email'=>request('correo'),
+                'user_type'=>'profesor',
+                'password'=>bcrypt(request('dni'))
             ]
         );
         return view('profesor_index');
@@ -118,6 +121,11 @@ class ProfesorController extends Controller
         $profesor->correo = request('correo');
         $profesor->save();
         
+        $usuario=Auth::user();
+        $usuario->name=request('nombres');
+        $usuario->email=request('correo');
+        $usuario->password=bcrypt(request('dni'));
+        $usuario->save();
         //return redirect()->route('profesor.index')->with('message','Registro actualizado satisfactoriamente');
  
         return view('profesor_index');

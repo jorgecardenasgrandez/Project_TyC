@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use App\Usuario;
+use App\User;
 class UsuarioSeeder extends Seeder
 {
     /**
@@ -12,72 +12,70 @@ class UsuarioSeeder extends Seeder
      */
     public function run()
     {
-        Usuario::create(
+        User::create(
             [
-                'usuario'=>'administradorCetpro@gmail.com',
-                'password'=>'admi',
-                'usuario_type'=>'administrador',
-                'estado'=>'desconectado'
+                'name'=>'administrador',
+                'email'=>'administradorCetpro@gmail.com',
+                'user_type'=>'administrador',
+                'password'=>bcrypt('admi')
             ]
         );
         
-        Usuario::create(
+        User::create([
+            'name'=>'carlo fernando',
+            'email'=>'mrks.95617@gmail.com',
+            'user_type'=>'alumno',
+            'password'=>bcrypt('70992942')
+        ]);
+
+        User::create(
         [
-            'usuario'=>'mrks.95617@gmail.com',
-            'password'=>'70992942',
-            'usuario_type'=>'alumno',
-            'estado'=>'desconectado'
+            'name'=>'luz estrella',
+            'email'=>'luz.malca10@gmail.com',
+            'user_type'=>'alumno',
+            'password'=>bcrypt('70115689')
         ]
         );
 
-        Usuario::create(
+        User::create(
         [
-            'usuario'=>'luz.malca10@gmail.com',
-            'password'=>'70115689',
-            'usuario_type'=>'alumno',
-            'estado'=>'desconectado'
+            'name'=>'carmen luisa',
+            'email'=>'carmenluisa-reyes@gmail.com',
+            'user_type'=>'alumno',
+            'password'=>bcrypt('69122314')
         ]
         );
 
-        Usuario::create(
+        User::create(
         [
-            'usuario'=>'carmenluisa-reyes@gmail.com',
-            'password'=>'69122314',
-            'usuario_type'=>'alumno',
-            'estado'=>'desconectado'
+            'name'=>'beatriz jane',
+            'email'=>'beatriz1@gmail.com',
+            'user_type'=>'profesor',
+            'password'=>bcrypt('12345678')
         ]
         );
 
-        Usuario::create(
-        [
-            'usuario'=>'beatriz1@gmail.com',
-            'password'=>'12345678',
-            'usuario_type'=>'profesor',
-            'estado'=>'desconectado'
-        ]
-        );
-
-        Usuario::create(
+        User::create(
             [
-                'usuario'=>'enedina1@gmail.com',
-                'password'=>'11111111',
-                'usuario_type'=>'profesor',
-                'estado'=>'desconectado'
+            'name'=>'enedina',
+            'email'=>'enedina1@gmail.com',
+            'user_type'=>'profesor',
+            'password'=>bcrypt('11111111')
             ]
         );
 
-        Usuario::create([
-            'usuario'=>'doris1@gmail.com',
-            'password'=>'22222222',
-            'usuario_type'=>'profesor',
-           'estado'=>'desconectado'
+        User::create([
+        'name'=>'doris',
+        'email'=>'doris1@gmail.com',
+        'user_type'=>'profesor',
+        'password'=>bcrypt('22222222')
         ]);
 
-        Usuario::create([
-            'usuario'=>'silvia1@gmail.com',
-            'password'=>'33333333',
-            'usuario_type'=>'profesor',
-           'estado'=>'desconectado'
+        User::create([
+        'name'=>'silvia',
+        'email'=>'silvia1@gmail.com',
+        'user_type'=>'profesor',
+        'password'=>bcrypt('33333333')
         ]);
     }
 }

@@ -13,8 +13,8 @@ class ProfileAdminComposer {
      */
     public function compose(View $view)
     {
-        $users = Usuario::where('estado','conectado')->first();
-        $view->with('user', $users); 
+        /*$users = Usuario::where('estado','conectado')->first();
+        $view->with('user', $users);*/ 
     }
  
 }

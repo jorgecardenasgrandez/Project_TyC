@@ -7,10 +7,12 @@ use App\Alumno;
 use App\Distrito;
 use App\Provincia;
 use App\Departamento;
-use App\Usuario;
-
+use App\User;
 class AlumnoController extends Controller
 {
+    function __construct(){
+        $this->middleware('auth');                                   
+    }
     /**
      * Display a listing of the resource.
      *
@@ -64,12 +66,12 @@ class AlumnoController extends Controller
                 'estado_alumno' => 1                     //el profesor esta activo
         ]);
         
-        Usuario::create(
+        User::create(
             [
-                'usuario'=>request('email'),
-                'password'=>request('dni'),
-                'usuario_type'=>'alumno',
-                'estado'=>'desconectado'
+                'name'=>request('nombres'),
+                'email'=>request('email'),
+                'user_type'=>'alumno',
+                'password'=>bcrypt(request('dni'))
             ]
         );
         

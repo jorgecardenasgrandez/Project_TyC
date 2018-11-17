@@ -13,9 +13,10 @@ class ProfileAlumnoComposer {
      */
     public function compose(View $view)
     {
-        $user = Usuario::where('estado','conectado')->first();
+        /*$user = Usuario::where('estado','conectado')->first();
         $alumno=Usuario::getDatosAlumno($user->usuario);
         $view->with('alumno_composer', $alumno); 
+        */
     }
  
 }

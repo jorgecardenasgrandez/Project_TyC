@@ -10,15 +10,22 @@ use App\Modulo;
 use App\Profesor;
 use App\Turno;
 use App\Frecuencia;
+use Auth;
 class GAlumnoMatriculaController extends Controller
 {
+
+    function __construct(){
+        $this->middleware('auth'); //solo deje pasar a los usuarios autenticados, 
+                                        //si quieres pasar sin logearte t direccionar al hander(captura de excepcion)
+    }
+
     function index(){
         return view('alumno_index');
     }
 
-    function perfil($dni){
-        
-        $alumno=Alumno::getAlumno($dni);
+    function perfil(){
+        $correo=Auth::user()->email;
+        $alumno=Alumno::getAlumno($correo);
         $distrito=$alumno->distrito;
         $provincia=$distrito->provincia;
         $departamento=$provincia->departamento;
@@ -30,9 +37,10 @@ class GAlumnoMatriculaController extends Controller
             ]);
     }
 
-    function reporteMatricula($dni){
+    function reporteMatricula(){
         
-        $alumno=Alumno::getAlumno($dni);
+        $correo=Auth::user()->email;
+        $alumno=Alumno::getAlumno($correo);
         $matriculs=$alumno->matriculas; //genera las matriculas que tiene el alumno
 
         return view('alumno_reporte_matricula',[
@@ -62,9 +70,10 @@ class GAlumnoMatriculaController extends Controller
         ]);
     }
 
-    function reporteEvaluaciones($dni){
+    function reporteEvaluaciones(){
       
-        $matriculas=Matricula::obtenerMatriculas($dni);
+        $correo=Auth::user()->email;
+        $matriculas=Matricula::obtenerMatriculas($correo);
        
         $new_modulo=collect(new Modulo);
         $new_profesor=collect(new Profesor);

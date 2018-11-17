@@ -9,6 +9,10 @@ use App\Opcionocupacional;
 
 class ModuloController extends Controller
 {
+    function __construct(){
+        $this->middleware('auth');                            
+    }
+
     function showRegistroModulo(){
         $lsOpcionesOcupacionales=Opcionocupacional::all();
         return view('modulo_registrar',['lsOpcionesOcup'=>$lsOpcionesOcupacionales]);
