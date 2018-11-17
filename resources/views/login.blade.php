@@ -26,23 +26,29 @@
 
 		<div class="container-login100" style="background-image: url(/img/bg-01.jpg)">
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-60 p-b-45"> 
-			    <header> </header>
-				<form class="login100-form validate-form" action="{{ route('login')}}" method="POST">
+				<header> </header>
+				
+				@if(session()->has('flash'))
+            		<div class="alert alert-info"> {{ session('flash') }}</div>
+       			@endif
+				<form class="login100-form validate-form" action="{{ route('login') }}" method="POST">
 				@csrf
 					<span class="login100-form-title p-b-49" style="background-image: url(/img/cetpro.png)">
 						<br><br><br><br>
 					</span>
 
-					<div class="wrap-input100 validate-input m-b-23">
-						<span class="label-input100"> Nombre de Usuario: </span>
-						<input class="input100" type="text" name="username" placeholder="Escribe tu nombre de usuario" value="{{ old('username') }}" required>
+					<div class="wrap-input100 validate-input m-b-23" {{ $errors->has('email') ? 'has-error' : ''}}>
+						<span class="label-input100"> Correo electronico: </span>
+						<input class="input100" type="email" name="email" value="{{ old('email') }}"  placeholder="Escribe tu correo"  required>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
+						{{!! $errors->first('email','<span class="help-block">:message</span>') !!}}
 					</div>
 
-					<div class="wrap-input100 validate-input">
+					<div class="wrap-input100 validate-input" {{ $errors->has('password') ? 'has-error' : ''}}>
 						<span class="label-input100"> Contraseña: </span>
-						<input class="input100" type="password" name="pass" placeholder="Escribe tu contraseña" required>
+						<input class="input100" type="password" name="password" placeholder="Escribe tu contraseña" required>
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
+						{{!! $errors->first('password','<span class="help-block">:message</span>') !!}} 
 					</div>
 					
 					<div class="text-right p-t-8 p-b-31">
