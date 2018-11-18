@@ -8,6 +8,8 @@ use App\Modulo;
 use App\Turno;
 use App\Frecuencia;
 use App\Grupo;
+use App\Periodo;
+
 
 class GrupoController extends Controller
 {
@@ -65,13 +67,15 @@ class GrupoController extends Controller
      */
     public function store(Request $request)
     {
+        $periodo_actual = Periodo::where('estado',1)->first();
         Grupo::create([
                 'fecInicio' => request('fecha-inicio'),
                 'fecFin' => request('fecha-fin'),
                 'profesor_id' => request('nombres'),
                 'modulo_id' => request('modulo'),
                 'turno_id' => request('turno'),
-                'frecuencia_id' => request('frecuencia')                   
+                'frecuencia_id' => request('frecuencia'),
+                'periodo_id' => $periodo_actual->id
         ]);
         return view('index');
     }

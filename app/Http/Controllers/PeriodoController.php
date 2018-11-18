@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Periodo;
 
 class PeriodoController extends Controller
 {
@@ -13,7 +14,8 @@ class PeriodoController extends Controller
      */
     public function index()
     {
-        return view('mant_periodo_academico');
+        $periodos = Periodo::all();
+        return view('mant_periodo_academico',compact('periodos'));
     }
 
     /**
@@ -56,7 +58,8 @@ class PeriodoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $periodo = Periodo::find($id);
+        return view('periodo_modificar',compact('periodo'));
     }
 
     /**
@@ -68,7 +71,19 @@ class PeriodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $periodo = Periodo::find($id);
+        if($periodo->estado == 0 && $request->estado == 1){
+            $periodo_anterior = Periodo::where('estado',1)->first();
+            $periodo_anterior->estado = 0;
+            $periodo_anterior->save();
+        }
+        
+        $periodo->nombre = $request->nombre;
+        $periodo->fechaInicio = request('fecha-inicio');
+        $periodo->fechaFin = request('fecha-fin');
+        $periodo->estado = $request->estado;
+        $periodo->save();
+        return view('index');
     }
 
     /**

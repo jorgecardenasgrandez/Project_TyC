@@ -18,10 +18,15 @@ class CreateModulosTable extends Migration
             $table->string('nombreMod',80);
             $table->smallInteger('duracion');
             $table->integer('oo_id')->unsigned();
+            
             $table->foreign('oo_id')
             ->references('id')
             ->on('opcionocupacionals')->onDelete('cascade');
             $table->tinyInteger('estado');
+            
+            $table->integer('periodo_id')->unsigned();
+            $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

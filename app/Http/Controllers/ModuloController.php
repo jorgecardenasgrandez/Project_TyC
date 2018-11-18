@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Modulo;
 use App\Http\Requests\ModuloRequest;
 use App\Opcionocupacional;
+use App\Periodo;
 
 class ModuloController extends Controller
 {
@@ -20,12 +21,13 @@ class ModuloController extends Controller
 
     function registrarModulo(ModuloRequest $request){
             
-            
+            $periodo_actual = Periodo::where('estado',1)->first();
             $modulo=new Modulo;
             $modulo->nombreMod=$request->nombre;
             $modulo->duracion=$request->duracion;
             $modulo->oo_id=$request->opcion_ocupacional;
             $modulo->estado=1;
+            $modulo->periodo_id= $periodo_actual->id;
             $modulo->save();
            
             /*$this->validate($request,['nombre'=>'required', 'duracion'=>'required','opcion_ocupacional'=>'required']);

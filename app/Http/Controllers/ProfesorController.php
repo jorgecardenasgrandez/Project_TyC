@@ -10,6 +10,7 @@ use App\Matricula;
 use App\Alumno;
 use App\Grupo;
 use App\Nomina;
+use App\Periodo;
 use Auth;
 class ProfesorController extends Controller
 {
@@ -58,6 +59,7 @@ class ProfesorController extends Controller
         /*SE PUEDE MEJORAR USANDO CLASES REQUEST
         $this->validate($request,['nombres'=>'required', 'apellido-paterno'=>'required', 'apellido-materno'=>'required','sexo'=>'required','fecha-nacimiento'=>'required']);
         */
+        $periodo_actual = Periodo::where('estado',1)->first();
         Profesor::create([
                 'nom_prof' => request('nombres'),
                 'apePaterno_prof' => request('apellido-paterno'),
@@ -68,7 +70,8 @@ class ProfesorController extends Controller
                 'distritoDom_id' => request('distrito'),
                 'estado_prof' => 1 ,                    //el profesor esta activo               
                 'dni' => request('dni'),
-                'correo' => request('correo')
+                'correo' => request('correo'),
+                'periodo_id' => $periodo_actual->id
         ]);
         
         User::create(
@@ -217,9 +220,7 @@ class ProfesorController extends Controller
                                                   'nota3' => $nomina->nota3
                                             );
                 $fil++;
-            }
-            
-            
+            }            
         }
         
         return view('profesor_alumnos_x_modulo', compact('alumnosdetalles','grupo'));

@@ -220,6 +220,28 @@
                                 </ul>
                             </div>
                         </li>
+                        <li class="sidebar-dropdown">
+                            <a>
+                                <i class="fa fa-folder"></i>
+                                <span>Consultar Historial</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                    <li>
+                                        <a href="">Informacion General</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Modulos</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Profesores</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Matriculas</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li>
                             
                                 <a href="{{ route('logout') }}">

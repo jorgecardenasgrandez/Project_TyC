@@ -47,17 +47,23 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($periodos as $per)
                             <tr>
-                                <td> 1          </td>
-                                <td> Semestre 2018-1 </td>
-                                <td> 3/03/2018       </td>
-                                <td> 3/09/2018</td>
-                                <td> Activo              </td>
+                                <td> {{$per->id}}          </td>
+                                <td> {{$per->nombre}} </td>
+                                <td> {{$per->fechaInicio}}       </td>
+                                <td> {{$per->fechaFin}}</td>
+                                @if($per->estado == 1)
+                                    <td> Activo              </td>
+                                @else
+                                    <td> No activo              </td>
+                                @endif
                                 <td>
-                                    <button type="button" class="btn btn-warning"><i class="fa fa-wrench"></i></button>
-                                    <button type="button" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                    <a class="btn btn-warning" href="{{action('PeriodoController@edit', $per->id)}}"><i class="fa fa-wrench"></i></a>
+                                    <a class="btn btn-danger" href=""><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>              

@@ -9,6 +9,7 @@ use App\Frecuencia;
 use App\Turno;
 use App\Alumno;
 use App\Profesor;
+use App\Periodo;
 use App\Grupo;
 
 
@@ -70,13 +71,16 @@ class MatriculaController extends Controller
      */
     public function store(Request $request)
     {
+        $periodo_actual= Periodo::where('estado',1)->first();
+        
         $fil2 = substr(request('grupo'),0,1);
         Matricula::create([
                 'fecMat' => request('fecha'),
                 'montoLabo' => 25.00,                       //valor por defecto
                 'estudiante_dni' => request('nombres'),
                 'numReciboPago' => request('recibo'),
-                'grupo_id' => (integer)$fil2      
+                'grupo_id' => (integer)$fil2,
+                'periodo_id' => $periodo_actual->id      
         ]);
         return view('index');
     }

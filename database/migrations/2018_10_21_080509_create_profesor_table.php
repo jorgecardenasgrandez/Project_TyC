@@ -28,6 +28,9 @@ class CreateProfesorTable extends Migration
             $table->string('dni')->unique();
             $table->string('correo')->unique();
             $table->tinyInteger('estado_prof');
+            
+            $table->integer('periodo_id')->unsigned();
+            $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
             $table->timestamps();
         });
     }
