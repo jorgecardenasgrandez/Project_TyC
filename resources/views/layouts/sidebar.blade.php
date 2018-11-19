@@ -231,7 +231,7 @@
                                         <a href="/infogeneral">Informacion General</a>
                                     </li>
                                     <li>
-                                        <a href="">Modulos</a>
+                                        <a href="/historialmodulos">Modulos</a>
                                     </li>
                                     <li>
                                         <a href="">Profesores</a>

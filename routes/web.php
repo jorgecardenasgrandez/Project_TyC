@@ -27,6 +27,9 @@ Route::get('/homeadmin',function(){
 Route::resource('periodo','PeriodoController');
 Route::get('/infogeneral','PeriodoController@mostrar_datos_generales');
 Route::get('/obtenerHistorialGeneral/{id}','PeriodoController@obtener_DatosGenerales');
+Route::get('/historialmodulos','PeriodoController@mostrar_datos_modulo');
+Route::get('/obtenerDatosModulo/{id}','PeriodoController@obtener_datos_modulo');
+
 
 
 /*          RUTAS PARA LA GESTION DE PROFESOR

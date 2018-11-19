@@ -174,7 +174,39 @@ class PeriodoController extends Controller
     }
     public function mostrar_datos_generales(){
         $periodos = Periodo::all();
-        
         return view('historial_info_general',compact('periodos'));
+    }
+    
+    public function mostrar_datos_modulo(){
+        $periodos = Periodo::all();
+        return view('historial_modulos',compact('periodos'));
+    }
+    
+    public function obtener_datos_modulo(Request $request,$id){
+        if($request->ajax()){
+            $modulos = Modulo::where('periodo_id',$id);
+            $modulodetalles = array();
+            $fil=0;
+            foreach($modulos as $mod){
+                $opcion = Opcionocupacional::find($mod->oo_id);
+                $familia = Familiaprofesional::find($opcion->fp_id);
+                
+                $grupos = Grupo::where('modulo_id',$mod->id)->where('periodo_id',$id)->get();
+                $cant = 0;
+                foreach($grupos as $grup){
+                    $cant = $cant + $grup->nro_matriculados;
+                };
+                $modulodetalles[$fil] = array('nro' =>$mod->id,
+                                              'modulo' =>$mod->nombreMod,
+                                              'familia' =>$familia->nombreFP,
+                                              'opcion' =>$opcion->nombreOO,
+                                            'nro_matriculados'=>$cant,
+                                              'nro_grupos' => count($grupos)
+                                        );
+                $fil++;
+            }
+            
+            return response()->json($modulodetalles);
+        }
     }
 }

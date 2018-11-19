@@ -56,6 +56,7 @@
     <script src="/js/renderizar_info_grupo.js"></script>
     <script src="/js/renderizar_info_profesor.js"></script>
     <script src="/js/renderizar_datos_generales_historial.js"></script>
+    <script src="/js/renderizar_tabla_modulos.js"></script>
 
 </body>
 </html>
