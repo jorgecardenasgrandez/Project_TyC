@@ -15,7 +15,9 @@ class Matricula extends Model
                 'montoLabo',
                 'estudiante_dni',
                 'numReciboPago',
-                'grupo_id'];
+                'grupo_id',
+                'periodo_id'
+                          ];
 
 
     function alumno(){

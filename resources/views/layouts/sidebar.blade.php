@@ -228,7 +228,7 @@
                             <div class="sidebar-submenu">
                                 <ul>
                                     <li>
-                                        <a href="">Informacion General</a>
+                                        <a href="/infogeneral">Informacion General</a>
                                     </li>
                                     <li>
                                         <a href="">Modulos</a>

@@ -23,8 +23,10 @@ Route::get('/homeadmin',function(){
     return view('index');
 } );
 
-// *********** GESTION DE PERIODOS ACADEMICOS ******************************* //
+// *********** GESTION DE PERIODOS ACADEMICOS E HISTORIAL******************************* //
 Route::resource('periodo','PeriodoController');
+Route::get('/infogeneral','PeriodoController@mostrar_datos_generales');
+Route::get('/obtenerHistorialGeneral/{id}','PeriodoController@obtener_DatosGenerales');
 
 
 /*          RUTAS PARA LA GESTION DE PROFESOR

@@ -32,6 +32,8 @@ class CreateGrupoTable extends Migration
             
             $table->integer('periodo_id')->unsigned();
             $table->foreign('periodo_id')->references('id')->on('periodos')->onDelete('cascade');
+            
+            $table->integer('nro_matriculados');
             $table->timestamps();
         });
     }

@@ -10,6 +10,7 @@ class Modulo extends Model
         'nombreMod',
         'duracion',
         'oo_id',
-        'estado'
+        'estado',
+        'periodo_id'
     ];
 }

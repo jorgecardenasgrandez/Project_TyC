@@ -75,7 +75,8 @@ class GrupoController extends Controller
                 'modulo_id' => request('modulo'),
                 'turno_id' => request('turno'),
                 'frecuencia_id' => request('frecuencia'),
-                'periodo_id' => $periodo_actual->id
+                'periodo_id' => $periodo_actual->id,
+                'nro_matriculados' => 0 //default
         ]);
         return view('index');
     }

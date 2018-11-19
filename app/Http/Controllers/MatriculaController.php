@@ -80,8 +80,14 @@ class MatriculaController extends Controller
                 'estudiante_dni' => request('nombres'),
                 'numReciboPago' => request('recibo'),
                 'grupo_id' => (integer)$fil2,
-                'periodo_id' => $periodo_actual->id      
+                'periodo_id' => $periodo_actual->id
         ]);
+        
+        $grupo = Grupo::find((integer)$fil2);
+        $matriculados = $grupo->nro_matriculados; 
+        $grupo->nro_matriculados = $matriculados + 1;
+        $grupo->save();
+        
         return view('index');
     }
 

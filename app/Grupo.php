@@ -7,13 +7,15 @@ use App\Modulo;
 use App\Profesor;
 use App\Turno;
 use App\Frecuencia;
+use App\Periodo;
 
 class Grupo extends Model
 {
-    protected $fillable = ['fecInicio','fecFin','profesor_id','modulo_id','turno_id','frecuencia_id'];
+    protected $fillable = ['fecInicio','fecFin','profesor_id','modulo_id','turno_id','frecuencia_id','periodo_id','nro_matriculados'];
     
     public static function getGrupo($id){
-        return Grupo::where('modulo_id',$id)->get();
+        $periodo_actual = Periodo::where('estado', 1)->first();
+        return Grupo::where('modulo_id',$id)->where('periodo_id',$periodo_actual->id)->get();
     }
     
     public static function buscarGrupo($id){
