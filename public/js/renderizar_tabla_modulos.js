@@ -1,9 +1,9 @@
-$("#periodo").change(function(event){
+$("#periodos").change(function(event){
     $.get("/obtenerDatosModulo/"+event.target.value+"",function(response,modulo){
-    //console.log(response);
-        $("#tabla-modulos").empty();
+    console.log(response);
+        $("#cuerpo-tabla-modulos").empty();
         for(i=0; i<response.length; i++){
-            $("#tabla-modulos").append("<tr><td>1</td><td>Ofimatica Excel</td><td>Informatica</td><td>Tecnologia</td><td>20</td><td>20</td></tr>");
+            $("#cuerpo-tabla-modulos").append("<tr><td>"+response[i]['nro']+"</td><td>"+response[i]['modulo']+"</td><td>"+response[i]['familia']+"</td><td>"+response[i]['opcion']+"</td><td>"+response[i]['nro_matriculados']+"</td><td>"+response[i]['nro_grupos']+"</td></tr>");
         };
     });
 });

@@ -41,14 +41,14 @@
 						<span class="label-input100"> Correo electronico: </span>
 						<input class="input100" type="email" name="email" value="{{ old('email') }}"  placeholder="Escribe tu correo"  required>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
-						{{!! $errors->first('email','<span class="help-block">:message</span>') !!}}
+				<!--		{{!! $errors->first('email','<span class="help-block">:message</span>') !!}} -->
 					</div>
 
 					<div class="wrap-input100 validate-input" {{ $errors->has('password') ? 'has-error' : ''}}>
 						<span class="label-input100"> Contraseña: </span>
 						<input class="input100" type="password" name="password" placeholder="Escribe tu contraseña" required>
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
-						{{!! $errors->first('password','<span class="help-block">:message</span>') !!}} 
+				<!--		{{!! $errors->first('password','<span class="help-block">:message</span>') !!}} -->
 					</div>
 					
 					<div class="text-right p-t-8 p-b-31">

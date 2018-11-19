@@ -233,12 +233,6 @@
                                     <li>
                                         <a href="/historialmodulos">Modulos</a>
                                     </li>
-                                    <li>
-                                        <a href="">Profesores</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Matriculas</a>
-                                    </li>
                                 </ul>
                             </div>
                         </li>

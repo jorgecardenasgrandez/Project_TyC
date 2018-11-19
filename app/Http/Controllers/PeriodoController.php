@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Periodo;
 use App\Matricula;
+use App\Opcionocupacional;
+use App\Familiaprofesional;
 use App\Grupo;
 use App\Modulo;
 use App\Profesor;
@@ -184,7 +186,7 @@ class PeriodoController extends Controller
     
     public function obtener_datos_modulo(Request $request,$id){
         if($request->ajax()){
-            $modulos = Modulo::where('periodo_id',$id);
+            $modulos = Modulo::all();
             $modulodetalles = array();
             $fil=0;
             foreach($modulos as $mod){
@@ -205,7 +207,6 @@ class PeriodoController extends Controller
                                         );
                 $fil++;
             }
-            
             return response()->json($modulodetalles);
         }
     }

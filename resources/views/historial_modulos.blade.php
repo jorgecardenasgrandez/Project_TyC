@@ -16,7 +16,7 @@
                             <label class="titulo-label">Periodo:</label>
                         </div>
                         <div class="col-sm-3">
-                            <select name="periodo" id="periodo" class="form-control">
+                            <select name="periodos" id="periodos" class="form-control">
                                 @foreach($periodos as $per)
                                     <option value="{{$per->id}}">{{$per->nombre}}</option>
                                 @endforeach
@@ -46,7 +46,7 @@
                                 <th scope="col" width="5%">  Nro. Grupos </th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody id="cuerpo-tabla-modulos">
                             <!--
                             <tr>
                                 <td> 1         </td>
