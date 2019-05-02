@@ -208,15 +208,7 @@
                                     <li>
                                         <a href="{{ route('reporte.alumnos')}}">Reporte de alumnos matriculados</a>
                                     </li>
-                                    <li>
-                                        <a href="">Reporte de ...</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Reporte de ...</a>
-                                    </li>
-                                    <li>
-                                        <a href="">Reporte de ...</a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                         </li>

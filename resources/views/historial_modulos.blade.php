@@ -17,6 +17,7 @@
                         </div>
                         <div class="col-sm-3">
                             <select name="periodos" id="periodos" class="form-control">
+                                <option value="">Seleccionar</option>
                                 @foreach($periodos as $per)
                                     <option value="{{$per->id}}">{{$per->nombre}}</option>
                                 @endforeach

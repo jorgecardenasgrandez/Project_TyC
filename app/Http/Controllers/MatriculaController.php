@@ -140,7 +140,8 @@ class MatriculaController extends Controller
         /**
          * MOSTRAR A TODOS LOS ALUMNOS MATRICULADOS
          */
-        $matriculas=Matricula::all();
+        $periodo_actual = Periodo::where('estado',1)->first();
+        $matriculas=Matricula::where('periodo_id',$periodo_actual->id)->get();
 
         $new_alumno=collect(new Alumno);
         $new_modulo=collect(new Modulo);

@@ -31,7 +31,7 @@
                         <div class="col-sm">
                         </div>
                         <div class="col-sm">
-                            <button type="button" class="btn btn-success">+ Añadir</button>
+                            <a class="btn btn-success" href="{{route('periodo.create')}}">+ Añadir</a>
                         </div>
                     </div>
                     <br></br>
