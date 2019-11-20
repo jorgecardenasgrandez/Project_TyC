@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Profesor;
 use App\Modulo;
@@ -9,15 +7,11 @@ use App\Turno;
 use App\Frecuencia;
 use App\Grupo;
 use App\Periodo;
-
-
 class GrupoController extends Controller
 {
-
     function __construct(){
         $this->middleware('auth');                                 
     }
-
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +21,6 @@ class GrupoController extends Controller
     {
         //
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -58,7 +51,6 @@ class GrupoController extends Controller
         }
         
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -68,7 +60,12 @@ class GrupoController extends Controller
     public function store(Request $request)
     {
         $periodo_actual = Periodo::where('estado',1)->first();
-        Grupo::create([
+        
+        $cruce = $this->verificacion_grupos(request('nombres'),request('frecuencia'),request('turno'));
+        if($cruce){
+            return redirect()->route('grupo.create')->with('msj','Ya existe un horario igual para ese profesor');
+        }else{
+            Grupo::create([
                 'fecInicio' => request('fecha-inicio'),
                 'fecFin' => request('fecha-fin'),
                 'profesor_id' => request('nombres'),
@@ -77,10 +74,28 @@ class GrupoController extends Controller
                 'frecuencia_id' => request('frecuencia'),
                 'periodo_id' => $periodo_actual->id,
                 'nro_matriculados' => 0 //default
-        ]);
-        return view('index');
+            ]);
+            $confirmación="registro correctamente";
+            $profesores = Profesor::all();
+            $modulos = Modulo::all();
+            $turnos = Turno::all();
+            $frecuencias = Frecuencia::all();
+            return view('asignar_profesor',compact('profesores','modulos','turnos','frecuencias','confirmación'));
+        }
     }
-
+    
+    
+    public function verificacion_grupos($id_profesor, $id_frecuencia, $id_turno){
+        $resultado=false;
+        
+        $grupo_cruce = Grupo::where(['profesor_id'=> $id_profesor, 'turno_id'=>$id_frecuencia,'frecuencia_id'=>$id_frecuencia])->get();
+        if($grupo_cruce->isEmpty()){
+            
+        }else{
+            $resultado=true;
+        }
+        return $resultado;
+    }
     /**
      * Display the specified resource.
      *
@@ -91,7 +106,6 @@ class GrupoController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -102,7 +116,6 @@ class GrupoController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -114,7 +127,6 @@ class GrupoController extends Controller
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      *
